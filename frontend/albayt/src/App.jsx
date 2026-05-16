@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Footer from "./components/Footer";
 import "./index.css";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -26,6 +27,8 @@ function App() {
         <Route path="/appointments" element={<h1>Appointments Page</h1>} />
         <Route path="/contact" element={<h1>Contact Us Page</h1>} />
       </Routes>
+
+      <Footer />
     </Router>
   );
 }
