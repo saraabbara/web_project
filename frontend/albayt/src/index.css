@@ -3214,3 +3214,259 @@ html {
 
   margin-top: 160px;
 }
+
+/* =========================
+   Appointments Page
+   ========================= */
+
+.appointments-page {
+  background-color: #fffaf0;
+}
+
+.appointments-section {
+  padding: 107px 86px 130px;
+}
+
+.appointments-container {
+  max-width: 1259px;
+  margin: 0 auto;
+}
+
+.appointments-filters {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 72px;
+}
+
+.appointments-filter {
+  height: 47px;
+  padding: 0 32px;
+  border: 1px solid #cbcbcb;
+  border-radius: 37px;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #474646;
+  cursor: pointer;
+}
+
+.appointments-filter-active {
+  background-color: #03344f;
+  border-color: #03344f;
+  color: #ffffff;
+}
+
+.appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
+}
+
+.appointment-card {
+  min-height: 359px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.appointment-date-panel {
+  background-color: #03344f;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.appointment-month {
+  font-family: "Libertinus Serif", serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #e1c083;
+  margin: 0;
+}
+
+.appointment-day {
+  font-family: "Libertinus Serif", serif;
+  font-size: 128px;
+  font-weight: 700;
+  line-height: 128px;
+  color: #e1c083;
+  margin: 0;
+}
+
+.appointment-year,
+.appointment-time {
+  font-family: "Libertinus Serif", serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.appointment-year {
+  color: #cbcbcb;
+  margin-bottom: 10px;
+}
+
+.appointment-info {
+  padding: 47px 36px 24px 43px;
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.appointment-title {
+  font-family: "Libertinus Serif", serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #03344f;
+  margin: 0 0 8px;
+}
+
+.appointment-subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #514f55;
+  margin: 0;
+}
+
+.appointment-status {
+  min-width: 147px;
+  height: 47px;
+  padding: 0 18px;
+  border-radius: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.appointment-status-confirmed {
+  background-color: #c6fce4;
+  border: 1px solid #28f0b9;
+  color: #00503a;
+}
+
+.appointment-status-canceled {
+  background-color: #ffcdc0;
+  border: 1px solid #ff0000;
+  color: #852d00;
+}
+
+.appointment-meta {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  margin-top: 58px;
+}
+
+.appointment-meta p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #514f55;
+  margin: 0;
+}
+
+.appointment-cal-icon {
+  width: 20.25px !important;
+  height: 22.5px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.appointment-location-icon {
+  width: 18px !important;
+  height: 24px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.appointment-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #cbcbcb;
+  margin-top: auto;
+  margin-bottom: 22px;
+}
+
+.appointment-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.appointment-cancel-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #514f55;
+  cursor: pointer;
+}
+
+/* Empty Appointments */
+
+.appointments-empty-card {
+  min-height: 644px;
+  padding: 90px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.appointments-empty-icon {
+  width: 85px;
+  height: 81px;
+  border: none;
+  margin-bottom: 34px;
+}
+
+.appointments-empty-img {
+  width: 85px !important;
+  height: 81px !important;
+  object-fit: contain;
+  display: block;
+}
+
+.appointments-empty-card h2 {
+  font-family: "Libertinus Serif", serif;
+  font-size: 75px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 18px;
+}
+
+.appointments-empty-card p {
+  font-size: 24px;
+  font-weight: 500;
+  color: #514f55;
+  margin: 0 0 50px;
+}
+
+.appointments-empty-btn {
+  width: 389px;
+  height: 65px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-decoration: none;
+}

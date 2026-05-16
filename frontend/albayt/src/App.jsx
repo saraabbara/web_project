@@ -19,6 +19,7 @@ import ProjectDetails from "./components/ProjectDetails";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Appointments from "./components/Appointments";
 
 import Book1 from "./components/Book1";
 import Book2 from "./components/Book2";
@@ -65,13 +66,15 @@ function App() {
         {/* Normal Pages */}
         <Route path="/projects" element={<Projects />} />
         <Route path="/project-details/:id" element={<ProjectDetails />} />
-        <Route path="/appointments" element={<h1>Appointments Page</h1>} />
+        <Route path="/appointments" element={<Appointments />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
 
         {/* Book Appointment */}
         <Route path="/book" element={<Navigate to="/book1" />} />
+
+        <Route path="/appointments" element={<Appointments />} />
 
         {/* Booking Pages */}
         <Route
