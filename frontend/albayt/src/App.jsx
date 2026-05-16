@@ -1,3 +1,11 @@
+import { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -13,14 +21,25 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import "./index.css";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 function App() {
+  const [bookingData, setBookingData] = useState({
+    fullName: "",
+    phoneNumber: "",
+    email: "",
+    plan: "",
+    style: "",
+    floorPlanFile: null,
+    floorPlanFileName: "",
+    bookingDate: "",
+    bookingTime: "",
+  });
+
   return (
     <Router>
       <Header />
 
       <Routes>
+        {/* Home Page */}
         <Route
           path="/"
           element={

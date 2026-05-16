@@ -2106,3 +2106,1111 @@ html {
 .signup-left .login-submit {
   margin-top: 8px;
 }
+
+/* =========================
+   Shared Book Pages
+   ========================= */
+
+.book-page {
+  background-color: #fffaf0;
+  min-height: 100vh;
+  padding-top: 88px;
+}
+
+/* Shared Hero */
+
+.book-hero {
+  height: 600px;
+  background-color: #03344f;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 0 24px;
+}
+
+.book-label {
+  font-size: 20px;
+  font-weight: 500;
+  color: #e1c083;
+  margin: 0 0 24px;
+}
+
+.book-title {
+  font-family: "Libertinus Serif", serif;
+  font-size: 128px;
+  font-weight: 600;
+  line-height: 146px;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0px -10px 71.7px #000000;
+}
+
+.book-description {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fffefe;
+  margin: 12px 0 0;
+}
+
+/* Shared Progress */
+
+.book-progress-section {
+  max-width: 1309px;
+  margin: 70px auto 0;
+  padding: 0 24px;
+}
+
+.book-progress-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.book-progress-text span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.book-progress-step {
+  color: #514f55;
+}
+
+.book-progress-title {
+  color: #e1c083;
+}
+
+.book-progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: rgba(225, 192, 131, 0.28);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.book-progress-fill {
+  height: 100%;
+  background-color: #e1c083;
+  border-radius: 24px;
+}
+
+/* Different progress widths */
+
+.book1-progress-fill {
+  width: 20%;
+}
+
+.book2-progress-fill {
+  width: 40%;
+}
+
+/* Shared Card */
+
+.book-card {
+  max-width: 1324px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: #ffffff;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+}
+
+.book-card-title {
+  font-family: "Libertinus Serif", serif;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 73px;
+  color: #03344f;
+  margin: 0;
+}
+
+/* Shared Buttons */
+
+.book-buttons {
+  width: 1103px;
+  max-width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-back-btn {
+  width: 175px;
+  height: 50px;
+
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.64);
+  border-radius: 37px;
+
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #000000;
+
+  cursor: pointer;
+}
+
+.book-back-btn:hover {
+  transform: translateY(-2px);
+}
+
+.book-back-btn:active {
+  transform: scale(0.96);
+}
+
+.book-continue-btn {
+  width: 205px;
+  height: 50px;
+
+  font-size: 15px;
+  letter-spacing: 3px;
+}
+
+/* =========================
+   Book1 Specific
+   ========================= */
+
+.book1-card {
+  min-height: 1003px;
+  margin-top: 118px;
+  margin-bottom: 120px;
+  padding: 110px 43px 80px;
+}
+
+.book1-card .book-card-title {
+  margin-bottom: 52px;
+}
+
+.book1-form {
+  width: 956px;
+  max-width: 100%;
+}
+
+.book1-form-group {
+  margin-bottom: 42px;
+}
+
+.book1-form-group label {
+  display: block;
+
+  font-size: 24px;
+  font-weight: 500;
+  color: #e1c083;
+
+  margin-bottom: 15px;
+}
+
+.book1-form-group input {
+  width: 100%;
+  height: 70.41px;
+
+  background-color: rgba(225, 192, 131, 0.15);
+  border: 1px solid #e1c083;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  padding: 0 20px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: #353434;
+
+  outline: none;
+}
+
+.book1-form-group input:focus {
+  border-color: #03344f;
+}
+
+.book1-form .book-buttons {
+  margin-top: 150px;
+}
+
+/* =========================
+   Book2 Specific
+   ========================= */
+
+.book2-progress-fill {
+  width: 40%;
+}
+
+.book2-card {
+  min-height: 713px;
+  margin-top: 97px;
+  margin-bottom: 120px;
+  padding: 90px 42px 58px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book2-card .book-card-title {
+  width: 100%;
+  max-width: 1236px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.book2-plan-wrapper {
+  width: 100%;
+  max-width: 1236px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 37px;
+
+  margin-top: 25px;
+}
+
+.book2-plan-card {
+  position: relative;
+  width: 600px;
+  height: 309px;
+
+  background-color: #ffffff;
+  border: 1px solid #88858d;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+
+  padding: 31px 36px;
+  text-align: left;
+
+  cursor: pointer;
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Normal hover only */
+.book2-plan-card:hover {
+  border-color: #e1c083;
+  transform: translateY(-2px);
+}
+
+/* Selected state after clicking */
+.book2-plan-card-selected {
+  background-color: rgba(225, 192, 131, 0.23);
+  border: 1px solid #e1c083;
+  transform: none;
+}
+
+.book2-plan-card-selected:hover {
+  background-color: rgba(225, 192, 131, 0.23);
+  border: 1px solid #e1c083;
+  transform: none;
+}
+
+.book2-plan-card-selected::after {
+  content: "✓";
+  position: absolute;
+  top: 36px;
+  right: 33px;
+
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
+  color: #e1c083;
+}
+
+.book2-icon {
+  font-size: 52px;
+  color: #e1c083;
+  margin-bottom: 18px;
+}
+.book2-icon-img {
+  width: 43px;
+  height: 45px;
+  object-fit: contain;
+}
+.book2-plan-card h3 {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 55px;
+  color: #03344f;
+
+  margin: 0 0 15px;
+}
+
+.book2-plan-card p {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  color: #514f55;
+
+  margin: 0;
+  max-width: 475px;
+}
+
+.book2-buttons {
+  margin-top: 92px;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px) {
+  .book-title {
+    font-size: 72px;
+    line-height: 86px;
+  }
+
+  .book-card {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .book-card-title {
+    font-size: 48px;
+    line-height: 58px;
+  }
+
+  .book1-card,
+  .book2-card {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    padding: 70px 30px;
+  }
+
+  .book2-plan-wrapper {
+    flex-direction: column;
+  }
+
+  .book2-plan-card {
+    width: 100%;
+  }
+
+  .book-buttons {
+    margin-top: 90px;
+  }
+
+  .book6-card {
+    padding: 70px 30px;
+  }
+
+  .book6-summary {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book6-home-btn {
+    margin-top: 90px;
+  }
+}
+
+@media (max-width: 600px) {
+  .book-hero {
+    height: 480px;
+  }
+
+  .book-title {
+    font-size: 46px;
+    line-height: 56px;
+  }
+
+  .book-description {
+    font-size: 16px;
+  }
+
+  .book-progress-text {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .book-buttons {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .book-back-btn,
+  .book-continue-btn {
+    width: 100%;
+  }
+
+  .book2-plan-card {
+    height: auto;
+  }
+
+  .book2-plan-card h3 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .book2-plan-card p {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .book6-check-icon {
+    width: 130px;
+    height: 130px;
+    font-size: 82px;
+  }
+
+  .book6-title {
+    font-size: 48px;
+    line-height: 58px;
+  }
+
+  .book6-message {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .book6-summary-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .book6-summary-card p {
+    font-size: 24px;
+  }
+
+  .book6-summary-card h3 {
+    font-size: 38px;
+  }
+
+  .book6-home-btn {
+    width: 100%;
+  }
+}
+
+/* =========================
+   Book3 Specific
+   ========================= */
+
+.book3-progress-fill {
+  width: 60%;
+}
+
+.book3-card {
+  min-height: 1265px;
+  margin-top: 97px;
+  margin-bottom: 120px;
+  padding: 160px 101px 58px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book3-card .book-card-title {
+  width: 100%;
+  max-width: 1130px;
+  margin-bottom: 79px;
+  text-align: left;
+}
+
+.book3-style-grid {
+  width: 100%;
+  max-width: 1119px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 335px);
+  column-gap: 55px;
+  row-gap: 61px;
+
+  justify-content: center;
+}
+
+.book3-style-card {
+  position: relative;
+
+  width: 335px;
+  height: 265px;
+
+  background-color: #ffffff;
+  border: 1px solid #88858d;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+  border-radius: 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.book3-style-card {
+  position: relative;
+
+  width: 335px;
+  height: 265px;
+
+  background-color: #ffffff;
+  border: 1px solid #88858d;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+  border-radius: 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Normal hover only */
+.book3-style-card:hover {
+  border-color: #e1c083;
+  transform: translateY(-2px);
+}
+
+/* Selected state after clicking */
+.book3-style-card-selected {
+  background-color: rgba(225, 192, 131, 0.23);
+  border: 1px solid #e1c083;
+  transform: none;
+}
+
+.book3-style-card-selected:hover {
+  background-color: rgba(225, 192, 131, 0.23);
+  border: 1px solid #e1c083;
+  transform: none;
+}
+
+.book3-style-card-selected::after {
+  content: "✓";
+
+  position: absolute;
+  top: 26px;
+  right: 26px;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+  color: #e1c083;
+}
+
+.book3-style-card h3 {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 55px;
+  color: #03344f;
+
+  margin: 28px 0 0;
+}
+
+.book3-icon {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #e1c083;
+}
+
+/* Modern square icon */
+.book3-square-icon {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #e1c083;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Classic star icon */
+.book3-star-icon {
+  font-size: 58px;
+  line-height: 1;
+}
+
+/* Vintage circle icon */
+.book3-vintage-icon {
+  font-size: 54px;
+  line-height: 1;
+}
+
+/* Minimal line icon */
+.book3-line-icon {
+  width: 99px;
+  height: 0;
+  border-top: 10px solid #e1c083;
+}
+
+/* Arabesque icon */
+.book3-lotus-icon {
+  font-size: 58px;
+  line-height: 1;
+}
+
+/* Industrial tile icon */
+.book3-tile-icon {
+  font-size: 58px;
+  line-height: 1;
+}
+
+.book3-buttons {
+  margin-top: 230px;
+}
+
+/* =========================
+   Book4 Specific
+   ========================= */
+
+.book4-progress-fill {
+  width: 80%;
+}
+
+.book4-card {
+  min-height: 1092px;
+  margin-top: 97px;
+  margin-bottom: 120px;
+  padding: 90px 80px 52px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book4-header {
+  width: 100%;
+  max-width: 1157px;
+}
+
+.book4-header .book-card-title {
+  margin-bottom: 10px;
+}
+
+.book4-header p {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  color: #514f55;
+
+  margin: 0;
+}
+
+.book4-upload-box {
+  width: 100%;
+  max-width: 1142px;
+  height: 544px;
+
+  margin-top: 54px;
+
+  border: 2px dashed #595959;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.book4-upload-box:hover {
+  border-color: #e1c083;
+  background-color: rgba(225, 192, 131, 0.08);
+}
+
+.book4-upload-box input {
+  display: none;
+}
+
+.book4-upload-icon {
+  width: 150px;
+  height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 120px;
+  line-height: 1;
+  color: #e1c083;
+
+  margin-bottom: 42px;
+}
+
+.book4-upload-box p {
+  font-family: "Libertinus Serif", serif;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 59px;
+  color: #03344f;
+
+  margin: 0;
+}
+
+.book4-buttons {
+  margin-top: 170px;
+}
+
+/* =========================
+   Book5 Specific
+   ========================= */
+
+.book5-progress-fill {
+  width: 100%;
+}
+
+.book5-card {
+  min-height: 1092px;
+  margin-top: 97px;
+  margin-bottom: 120px;
+  padding: 90px 77px 50px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.book5-card .book-card-title {
+  margin-bottom: 35px;
+}
+
+.book5-date-input {
+  position: relative;
+
+  width: 100%;
+  max-width: 1081px;
+  height: 74.13px;
+
+  background-color: rgba(225, 192, 131, 0.15);
+  border: 1px solid #e1c083;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  cursor: pointer;
+}
+
+.book5-date-input input {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  cursor: pointer;
+}
+
+.book5-date-input span {
+  font-family: "Libertinus Serif", serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 36px;
+  color: rgba(3, 52, 79, 0.64);
+}
+
+.book5-calendar-icon {
+  margin-left: auto;
+
+  font-size: 42px !important;
+  color: #e1c083 !important;
+  opacity: 1 !important;
+}
+
+.book5-time-title {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 55px;
+  color: #03344f;
+
+  margin: 67px 0 34px 74px;
+}
+
+.book5-time-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 337px);
+  column-gap: 40px;
+  row-gap: 54px;
+
+  justify-content: center;
+}
+
+.book5-time-btn {
+  position: relative;
+
+  width: 337px;
+  height: 112px;
+
+  background-color: #ffffff;
+  border: 1px solid #88858d;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+
+  font-family: "Libertinus Serif", serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 55px;
+  color: #03344f;
+
+  cursor: pointer;
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.book5-time-btn {
+  position: relative;
+
+  width: 337px;
+  height: 112px;
+
+  background-color: #ffffff;
+  border: 1px solid #88858d;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+
+  font-family: "Libertinus Serif", serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 55px;
+  color: #03344f;
+
+  cursor: pointer;
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Normal hover only */
+.book5-time-btn:hover {
+  border-color: #e1c083;
+  transform: translateY(-2px);
+}
+
+/* Selected state after clicking */
+.book5-time-btn-selected {
+  background-color: rgba(225, 192, 131, 0.23);
+  border: 1px solid #e1c083;
+  transform: none;
+}
+
+.book5-time-btn-selected:hover {
+  background-color: rgba(225, 192, 131, 0.23);
+  border: 1px solid #e1c083;
+  transform: none;
+}
+
+.book5-time-btn-selected::after {
+  content: "✓";
+
+  position: absolute;
+  top: 12px;
+  right: 18px;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  color: #e1c083;
+}
+.book5-datepicker {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+
+  font-family: "Libertinus Serif", serif;
+  font-size: 32px;
+  color: rgba(3, 52, 79, 0.64);
+}
+
+/* Makes the calendar popup bigger */
+.book5-calendar-popup {
+  font-size: 20px;
+  transform: scale(1.25);
+  transform-origin: top left;
+}
+
+.book5-divider {
+  width: 100%;
+  max-width: 1242px;
+  height: 1px;
+
+  background-color: rgba(0, 0, 0, 0.4);
+
+  margin: 206px auto 58px;
+}
+.book5-calendar-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.book5-buttons {
+  width: 100%;
+  max-width: 1193px;
+
+  margin: 0 auto;
+}
+
+.book5-confirm-btn {
+  width: 287px;
+  height: 50px;
+
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 3px;
+}
+
+/* =========================
+   Book6 Specific
+   ========================= */
+
+.book6-card {
+  min-height: 949px;
+  margin-top: 128px;
+  margin-bottom: 120px;
+  padding: 55px 70px 90px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.book6-check-icon {
+  width: 182px;
+  height: 182px;
+
+  border-radius: 50%;
+  background-color: rgba(225, 192, 131, 0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 115px;
+  font-weight: 700;
+  line-height: 1;
+  color: #e1c083;
+
+  margin-bottom: 48px;
+}
+
+.book6-title {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 73px;
+  color: #03344f;
+
+  margin: 0 0 44px;
+}
+
+.book6-message {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  color: #514f55;
+
+  margin: 0;
+}
+
+.book6-summary {
+  display: flex;
+  justify-content: center;
+  gap: 33px;
+
+  margin-top: 56px;
+}
+
+.book6-summary-card {
+  width: 397px;
+  height: 140px;
+
+  background-color: rgba(225, 192, 131, 0.23);
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+
+  text-align: left;
+  padding: 20px 23px;
+  box-sizing: border-box;
+}
+
+.book6-summary-card p {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 39px;
+  color: #e1c083;
+
+  margin: 0 0 12px;
+}
+
+.book6-summary-card h3 {
+  font-family: "Libertinus Serif", serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 55px;
+  color: #e1c083;
+
+  margin: 0;
+}
+
+.book6-home-btn {
+  width: 287px;
+  height: 50px;
+
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 3px;
+
+  margin-top: 160px;
+}
