@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Albayt from "../assets/images/albayt.png";
+import Madayen from "../assets/images/almadayn.png";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -28,8 +30,8 @@ function Header() {
     <nav className={scrolled ? "header header-scrolled" : "header"}>
       {/* Logo */}
       <div className="header-logo">
-        <img src="/albayt.png" alt="Albayt Logo" className="albayt-logo" />
-        <img src="/almadayn.png" alt="Madayen Logo" className="almadayn-logo" />
+        <img src={Albayt} alt="Albayt Logo" className="albayt-logo" />
+        <img src={Madayen} alt="Madayen Logo" className="almadayn-logo" />
       </div>
 
       {/* Nav Links */}
@@ -44,7 +46,7 @@ function Header() {
       {/* Right Actions */}
       <div className="header-actions">
         <button className="language-btn">العربية</button>
-        <button className="gold-btn">LOG IN</button>
+        <button className="main-btn header-btn">LOG IN</button>
       </div>
     </nav>
   );

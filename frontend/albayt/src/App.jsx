@@ -1,14 +1,22 @@
-import { useState } from "react";
 import Header from "./components/Header";
+import Hero from "./components/Hero";
 import "./index.css";
 
-function App() {
-  const [count, setCount] = useState(0);
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+function App() {
   return (
-    <>
+    <Router>
       <Header />
-    </>
+
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/projects" element={<h1>Projects Page</h1>} />
+        <Route path="/book" element={<h1>Book Page</h1>} />
+        <Route path="/appointments" element={<h1>Appointments Page</h1>} />
+        <Route path="/contact" element={<h1>Contact Us Page</h1>} />
+      </Routes>
+    </Router>
   );
 }
 
