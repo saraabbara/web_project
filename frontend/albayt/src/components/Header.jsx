@@ -6,7 +6,7 @@ import Madayen from "../assets/images/almadayn.png";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Projects", path: "/projects" },
-  { name: "Book", path: "/book" },
+  { name: "Book", path: "/book1" },
   { name: "Appointments", path: "/appointments" },
   { name: "Contact us", path: "/contact" },
 ];

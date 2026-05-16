@@ -19,6 +19,14 @@ import ProjectDetails from "./components/ProjectDetails";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+
+import Book1 from "./components/Book1";
+import Book2 from "./components/Book2";
+import Book3 from "./components/Book3";
+import Book4 from "./components/Book4";
+import Book5 from "./components/Book5";
+import Book6 from "./components/Book6";
+
 import "./index.css";
 
 function App() {
@@ -54,13 +62,54 @@ function App() {
           }
         />
 
+        {/* Normal Pages */}
         <Route path="/projects" element={<Projects />} />
         <Route path="/project-details/:id" element={<ProjectDetails />} />
-        <Route path="/book" element={<h1>Book Page</h1>} />
         <Route path="/appointments" element={<h1>Appointments Page</h1>} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+
+        {/* Book Appointment */}
+        <Route path="/book" element={<Navigate to="/book1" />} />
+
+        {/* Booking Pages */}
+        <Route
+          path="/book1"
+          element={
+            <Book1 bookingData={bookingData} setBookingData={setBookingData} />
+          }
+        />
+
+        <Route
+          path="/book2"
+          element={
+            <Book2 bookingData={bookingData} setBookingData={setBookingData} />
+          }
+        />
+
+        <Route
+          path="/book3"
+          element={
+            <Book3 bookingData={bookingData} setBookingData={setBookingData} />
+          }
+        />
+
+        <Route
+          path="/book4"
+          element={
+            <Book4 bookingData={bookingData} setBookingData={setBookingData} />
+          }
+        />
+
+        <Route
+          path="/book5"
+          element={
+            <Book5 bookingData={bookingData} setBookingData={setBookingData} />
+          }
+        />
+
+        <Route path="/book6" element={<Book6 bookingData={bookingData} />} />
       </Routes>
 
       <Footer />
