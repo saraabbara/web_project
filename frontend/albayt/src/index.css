@@ -305,7 +305,12 @@ body {
 
 /* About Section */
 
-.about-section {
+html {
+  scroll-behavior: smooth;
+}
+
+#about-section {
+  scroll-margin-top: 88px;
   background-color: #fcfcfc;
 }
 

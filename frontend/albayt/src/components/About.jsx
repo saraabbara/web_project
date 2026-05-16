@@ -1,4 +1,5 @@
 import aboutBuilding from "../assets/images/aboutbuilding.png";
+
 const stats = [
   { num: "10", label: "PROJECTS" },
   { num: "70+", label: "CLIENTS" },
@@ -7,7 +8,7 @@ const stats = [
 
 function About() {
   return (
-    <section className="about-section">
+    <section className="about-section" id="about-section">
       {/* Top row */}
       <div className="about-container">
         <div>
