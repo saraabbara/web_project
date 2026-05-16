@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import heroBackground from "../assets/images/heroBackground.png";
 
 function Hero() {
   return (
-    <section className="hero">
+    <section className="hero" id="about">
       <img
         src={heroBackground}
         alt="Luxury interior"
@@ -22,8 +23,13 @@ function Hero() {
         </p>
 
         <div className="hero-buttons">
-          <button className="main-btn">EXPLORE MORE</button>
-          <button className="main-btn light-btn">BOOK A CONSULTATION</button>
+          <a href="#about-section" className="main-btn">
+            EXPLORE MORE
+          </a>
+
+          <Link to="/book" className="main-btn light-btn">
+            BOOK A CONSULTATION
+          </Link>
         </div>
 
         <div className="scroll-indicator">

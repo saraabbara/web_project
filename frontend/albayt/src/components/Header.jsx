@@ -30,8 +30,13 @@ function Header() {
     <nav className={scrolled ? "header header-scrolled" : "header"}>
       {/* Logo */}
       <div className="header-logo">
-        <img src={Albayt} alt="Albayt Logo" className="albayt-logo" />
-        <img src={Madayen} alt="Madayen Logo" className="almadayn-logo" />
+        <Link to="/">
+          <img src={Albayt} alt="Albayt Logo" className="albayt-logo" />
+        </Link>
+
+        <Link to="/">
+          <img src={Madayen} alt="Madayen Logo" className="almadayn-logo" />
+        </Link>
       </div>
 
       {/* Nav Links */}
@@ -46,7 +51,10 @@ function Header() {
       {/* Right Actions */}
       <div className="header-actions">
         <button className="language-btn">العربية</button>
-        <button className="main-btn header-btn">LOG IN</button>
+
+        <Link to="/login" className="main-btn header-btn">
+          Log in
+        </Link>
       </div>
     </nav>
   );
