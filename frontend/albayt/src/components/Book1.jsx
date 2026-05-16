@@ -20,12 +20,12 @@ function Book1({ bookingData, setBookingData }) {
 
   return (
     <main className="book-page">
-      <section className="book-hero">
-        <p className="book-label">Book</p>
+      <section className="projects-hero">
+        <p className="projects-label">Book</p>
 
-        <h1 className="book-title">Book a Consultation</h1>
+        <h1 className="projects-title">Book a Consultation</h1>
 
-        <p className="book-description">
+        <p className="projects-description">
           Tell us about your space. A designer will be in touch within 24 hours.
         </p>
       </section>

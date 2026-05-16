@@ -1571,7 +1571,7 @@ html {
 }
 
 .contact-hero {
-  min-height: 420px;
+  min-height: 360px;
   padding: 150px 80px 80px;
 
   background-size: cover;
@@ -2114,13 +2114,12 @@ html {
 .book-page {
   background-color: #fffaf0;
   min-height: 100vh;
-  padding-top: 88px;
 }
 
 /* Shared Hero */
 
 .book-hero {
-  height: 600px;
+  height: 360px;
   background-color: #03344f;
 
   display: flex;
@@ -2129,38 +2128,38 @@ html {
   justify-content: center;
 
   text-align: center;
-  padding: 0 24px;
+  padding: 120px 80px 70px;
 }
 
 .book-label {
-  font-size: 20px;
+  font-size: 13px;
   font-weight: 500;
   color: #e1c083;
-  margin: 0 0 24px;
+  margin: 0 0 14px;
 }
 
 .book-title {
   font-family: "Libertinus Serif", serif;
-  font-size: 128px;
+  font-size: 68px;
   font-weight: 600;
-  line-height: 146px;
+  line-height: 1;
   color: #ffffff;
   margin: 0;
   text-shadow: 0px -10px 71.7px #000000;
 }
 
 .book-description {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
   color: #fffefe;
-  margin: 12px 0 0;
+  margin: 18px 0 0;
 }
 
 /* Shared Progress */
 
 .book-progress-section {
-  max-width: 1309px;
-  margin: 70px auto 0;
+  max-width: 980px;
+  margin: 45px auto 0;
   padding: 0 24px;
 }
 
@@ -2168,11 +2167,11 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .book-progress-text span {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -2186,7 +2185,7 @@ html {
 
 .book-progress-bar {
   width: 100%;
-  height: 12px;
+  height: 8px;
   background-color: rgba(225, 192, 131, 0.28);
   border-radius: 24px;
   overflow: hidden;
@@ -2198,8 +2197,6 @@ html {
   border-radius: 24px;
 }
 
-/* Different progress widths */
-
 .book1-progress-fill {
   width: 20%;
 }
@@ -2208,10 +2205,22 @@ html {
   width: 40%;
 }
 
+.book3-progress-fill {
+  width: 60%;
+}
+
+.book4-progress-fill {
+  width: 80%;
+}
+
+.book5-progress-fill {
+  width: 100%;
+}
+
 /* Shared Card */
 
 .book-card {
-  max-width: 1324px;
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
 
@@ -2222,9 +2231,9 @@ html {
 
 .book-card-title {
   font-family: "Libertinus Serif", serif;
-  font-size: 64px;
+  font-size: 42px;
   font-weight: 400;
-  line-height: 73px;
+  line-height: 1.15;
   color: #03344f;
   margin: 0;
 }
@@ -2232,8 +2241,8 @@ html {
 /* Shared Buttons */
 
 .book-buttons {
-  width: 1103px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 870px;
 
   display: flex;
   justify-content: space-between;
@@ -2241,16 +2250,16 @@ html {
 }
 
 .book-back-btn {
-  width: 175px;
-  height: 50px;
+  width: 145px;
+  height: 42px;
 
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.64);
   border-radius: 37px;
 
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
   color: #000000;
 
   cursor: pointer;
@@ -2265,11 +2274,11 @@ html {
 }
 
 .book-continue-btn {
-  width: 205px;
-  height: 50px;
+  width: 175px;
+  height: 42px;
 
-  font-size: 15px;
-  letter-spacing: 3px;
+  font-size: 12px;
+  letter-spacing: 2.5px;
 }
 
 /* =========================
@@ -2277,48 +2286,48 @@ html {
    ========================= */
 
 .book1-card {
-  min-height: 1003px;
-  margin-top: 118px;
-  margin-bottom: 120px;
-  padding: 110px 43px 80px;
+  margin-top: 60px;
+  margin-bottom: 85px;
+  padding: 55px 55px 45px;
+  min-height: auto;
 }
 
 .book1-card .book-card-title {
-  margin-bottom: 52px;
+  margin-bottom: 36px;
 }
 
 .book1-form {
-  width: 956px;
+  width: 760px;
   max-width: 100%;
 }
 
 .book1-form-group {
-  margin-bottom: 42px;
+  margin-bottom: 26px;
 }
 
 .book1-form-group label {
   display: block;
 
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
   color: #e1c083;
 
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .book1-form-group input {
   width: 100%;
-  height: 70.41px;
+  height: 52px;
 
   background-color: rgba(225, 192, 131, 0.15);
   border: 1px solid #e1c083;
   box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 
-  padding: 0 20px;
+  padding: 0 18px;
 
   font-family: "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   color: #353434;
 
   outline: none;
@@ -2329,22 +2338,18 @@ html {
 }
 
 .book1-form .book-buttons {
-  margin-top: 150px;
+  margin-top: 60px;
 }
 
 /* =========================
    Book2 Specific
    ========================= */
 
-.book2-progress-fill {
-  width: 40%;
-}
-
 .book2-card {
-  min-height: 713px;
-  margin-top: 97px;
-  margin-bottom: 120px;
-  padding: 90px 42px 58px;
+  margin-top: 60px;
+  margin-bottom: 85px;
+  padding: 55px 55px 45px;
+  min-height: auto;
 
   display: flex;
   flex-direction: column;
@@ -2353,33 +2358,33 @@ html {
 
 .book2-card .book-card-title {
   width: 100%;
-  max-width: 1236px;
-  margin-bottom: 28px;
+  max-width: 870px;
+  margin-bottom: 24px;
   text-align: left;
 }
 
 .book2-plan-wrapper {
   width: 100%;
-  max-width: 1236px;
+  max-width: 900px;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 37px;
+  gap: 24px;
 
-  margin-top: 25px;
+  margin-top: 18px;
 }
 
 .book2-plan-card {
   position: relative;
-  width: 600px;
-  height: 309px;
+  width: 420px;
+  height: 220px;
 
   background-color: #ffffff;
   border: 1px solid #88858d;
   box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
 
-  padding: 31px 36px;
+  padding: 26px;
   text-align: left;
 
   cursor: pointer;
@@ -2391,13 +2396,11 @@ html {
     transform 0.2s ease;
 }
 
-/* Normal hover only */
 .book2-plan-card:hover {
   border-color: #e1c083;
   transform: translateY(-2px);
 }
 
-/* Selected state after clicking */
 .book2-plan-card-selected {
   background-color: rgba(225, 192, 131, 0.23);
   border: 1px solid #e1c083;
@@ -2413,200 +2416,67 @@ html {
 .book2-plan-card-selected::after {
   content: "✓";
   position: absolute;
-  top: 36px;
-  right: 33px;
+  top: 24px;
+  right: 24px;
 
-  width: 45px;
-  height: 45px;
+  width: 32px;
+  height: 32px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 38px;
+  font-size: 28px;
   font-weight: 600;
   line-height: 1;
   color: #e1c083;
 }
 
 .book2-icon {
-  font-size: 52px;
+  font-size: 38px;
   color: #e1c083;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
+
 .book2-icon-img {
-  width: 43px;
-  height: 45px;
+  width: 32px;
+  height: 34px;
   object-fit: contain;
 }
+
 .book2-plan-card h3 {
   font-family: "Libertinus Serif", serif;
   font-weight: 400;
-  font-size: 48px;
-  line-height: 55px;
+  font-size: 34px;
+  line-height: 1.1;
   color: #03344f;
 
-  margin: 0 0 15px;
+  margin: 0 0 12px;
 }
 
 .book2-plan-card p {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 29px;
+  line-height: 1.35;
   color: #514f55;
 
   margin: 0;
-  max-width: 475px;
+  max-width: 340px;
 }
 
 .book2-buttons {
-  margin-top: 92px;
-}
-
-/* =========================
-   Responsive
-   ========================= */
-
-@media (max-width: 900px) {
-  .book-title {
-    font-size: 72px;
-    line-height: 86px;
-  }
-
-  .book-card {
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-
-  .book-card-title {
-    font-size: 48px;
-    line-height: 58px;
-  }
-
-  .book1-card,
-  .book2-card {
-    margin-top: 80px;
-    margin-bottom: 100px;
-    padding: 70px 30px;
-  }
-
-  .book2-plan-wrapper {
-    flex-direction: column;
-  }
-
-  .book2-plan-card {
-    width: 100%;
-  }
-
-  .book-buttons {
-    margin-top: 90px;
-  }
-
-  .book6-card {
-    padding: 70px 30px;
-  }
-
-  .book6-summary {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .book6-home-btn {
-    margin-top: 90px;
-  }
-}
-
-@media (max-width: 600px) {
-  .book-hero {
-    height: 480px;
-  }
-
-  .book-title {
-    font-size: 46px;
-    line-height: 56px;
-  }
-
-  .book-description {
-    font-size: 16px;
-  }
-
-  .book-progress-text {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .book-buttons {
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .book-back-btn,
-  .book-continue-btn {
-    width: 100%;
-  }
-
-  .book2-plan-card {
-    height: auto;
-  }
-
-  .book2-plan-card h3 {
-    font-size: 36px;
-    line-height: 44px;
-  }
-
-  .book2-plan-card p {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .book6-check-icon {
-    width: 130px;
-    height: 130px;
-    font-size: 82px;
-  }
-
-  .book6-title {
-    font-size: 48px;
-    line-height: 58px;
-  }
-
-  .book6-message {
-    font-size: 18px;
-    line-height: 28px;
-  }
-
-  .book6-summary-card {
-    width: 100%;
-    height: auto;
-  }
-
-  .book6-summary-card p {
-    font-size: 24px;
-  }
-
-  .book6-summary-card h3 {
-    font-size: 38px;
-  }
-
-  .book6-home-btn {
-    width: 100%;
-  }
+  margin-top: 60px;
 }
 
 /* =========================
    Book3 Specific
    ========================= */
 
-.book3-progress-fill {
-  width: 60%;
-}
-
 .book3-card {
-  min-height: 1265px;
-  margin-top: 97px;
-  margin-bottom: 120px;
-  padding: 160px 101px 58px;
+  margin-top: 60px;
+  margin-bottom: 85px;
+  padding: 55px 55px 45px;
+  min-height: auto;
 
   display: flex;
   flex-direction: column;
@@ -2615,19 +2485,19 @@ html {
 
 .book3-card .book-card-title {
   width: 100%;
-  max-width: 1130px;
-  margin-bottom: 79px;
+  max-width: 870px;
+  margin-bottom: 42px;
   text-align: left;
 }
 
 .book3-style-grid {
   width: 100%;
-  max-width: 1119px;
+  max-width: 900px;
 
   display: grid;
-  grid-template-columns: repeat(3, 335px);
-  column-gap: 55px;
-  row-gap: 61px;
+  grid-template-columns: repeat(3, 250px);
+  column-gap: 32px;
+  row-gap: 34px;
 
   justify-content: center;
 }
@@ -2635,37 +2505,13 @@ html {
 .book3-style-card {
   position: relative;
 
-  width: 335px;
-  height: 265px;
+  width: 250px;
+  height: 190px;
 
   background-color: #ffffff;
   border: 1px solid #88858d;
   box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
-  border-radius: 22px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-  box-sizing: border-box;
-
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.book3-style-card {
-  position: relative;
-
-  width: 335px;
-  height: 265px;
-
-  background-color: #ffffff;
-  border: 1px solid #88858d;
-  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
-  border-radius: 22px;
+  border-radius: 18px;
 
   display: flex;
   flex-direction: column;
@@ -2681,13 +2527,11 @@ html {
     transform 0.2s ease;
 }
 
-/* Normal hover only */
 .book3-style-card:hover {
   border-color: #e1c083;
   transform: translateY(-2px);
 }
 
-/* Selected state after clicking */
 .book3-style-card-selected {
   background-color: rgba(225, 192, 131, 0.23);
   border: 1px solid #e1c083;
@@ -2704,17 +2548,17 @@ html {
   content: "✓";
 
   position: absolute;
-  top: 26px;
-  right: 26px;
+  top: 18px;
+  right: 18px;
 
-  width: 38px;
-  height: 38px;
+  width: 28px;
+  height: 28px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 34px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 1;
   color: #e1c083;
@@ -2723,16 +2567,16 @@ html {
 .book3-style-card h3 {
   font-family: "Libertinus Serif", serif;
   font-weight: 400;
-  font-size: 48px;
-  line-height: 55px;
+  font-size: 32px;
+  line-height: 1.1;
   color: #03344f;
 
-  margin: 28px 0 0;
+  margin: 18px 0 0;
 }
 
 .book3-icon {
-  width: 65px;
-  height: 65px;
+  width: 45px;
+  height: 45px;
 
   display: flex;
   align-items: center;
@@ -2741,63 +2585,53 @@ html {
   color: #e1c083;
 }
 
-/* Modern square icon */
 .book3-square-icon {
-  width: 60px;
-  height: 60px;
-  border: 5px solid #e1c083;
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  border: 4px solid #e1c083;
+  border-radius: 8px;
   box-sizing: border-box;
 }
 
-/* Classic star icon */
 .book3-star-icon {
-  font-size: 58px;
+  font-size: 42px;
   line-height: 1;
 }
 
-/* Vintage circle icon */
 .book3-vintage-icon {
-  font-size: 54px;
+  font-size: 40px;
   line-height: 1;
 }
 
-/* Minimal line icon */
 .book3-line-icon {
-  width: 99px;
+  width: 70px;
   height: 0;
-  border-top: 10px solid #e1c083;
+  border-top: 7px solid #e1c083;
 }
 
-/* Arabesque icon */
 .book3-lotus-icon {
-  font-size: 58px;
+  font-size: 42px;
   line-height: 1;
 }
 
-/* Industrial tile icon */
 .book3-tile-icon {
-  font-size: 58px;
+  font-size: 42px;
   line-height: 1;
 }
 
 .book3-buttons {
-  margin-top: 230px;
+  margin-top: 60px;
 }
 
 /* =========================
    Book4 Specific
    ========================= */
 
-.book4-progress-fill {
-  width: 80%;
-}
-
 .book4-card {
-  min-height: 1092px;
-  margin-top: 97px;
-  margin-bottom: 120px;
-  padding: 90px 80px 52px;
+  margin-top: 60px;
+  margin-bottom: 85px;
+  padding: 55px 55px 45px;
+  min-height: auto;
 
   display: flex;
   flex-direction: column;
@@ -2806,7 +2640,7 @@ html {
 
 .book4-header {
   width: 100%;
-  max-width: 1157px;
+  max-width: 870px;
 }
 
 .book4-header .book-card-title {
@@ -2814,9 +2648,9 @@ html {
 }
 
 .book4-header p {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 29px;
+  line-height: 1.35;
   color: #514f55;
 
   margin: 0;
@@ -2824,10 +2658,10 @@ html {
 
 .book4-upload-box {
   width: 100%;
-  max-width: 1142px;
-  height: 544px;
+  max-width: 850px;
+  height: 330px;
 
-  margin-top: 54px;
+  margin-top: 35px;
 
   border: 2px dashed #595959;
   border-radius: 10px;
@@ -2854,62 +2688,58 @@ html {
 }
 
 .book4-upload-icon {
-  width: 150px;
-  height: 150px;
+  width: 90px;
+  height: 90px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 120px;
+  font-size: 70px;
   line-height: 1;
   color: #e1c083;
 
-  margin-bottom: 42px;
+  margin-bottom: 24px;
 }
 
 .book4-upload-box p {
   font-family: "Libertinus Serif", serif;
-  font-size: 52px;
+  font-size: 34px;
   font-weight: 400;
-  line-height: 59px;
+  line-height: 1.1;
   color: #03344f;
 
   margin: 0;
 }
 
 .book4-buttons {
-  margin-top: 170px;
+  margin-top: 60px;
 }
 
 /* =========================
    Book5 Specific
    ========================= */
 
-.book5-progress-fill {
-  width: 100%;
-}
-
 .book5-card {
-  min-height: 1092px;
-  margin-top: 97px;
-  margin-bottom: 120px;
-  padding: 90px 77px 50px;
+  margin-top: 60px;
+  margin-bottom: 85px;
+  padding: 55px 55px 45px;
+  min-height: auto;
 
   display: flex;
   flex-direction: column;
 }
 
 .book5-card .book-card-title {
-  margin-bottom: 35px;
+  margin-bottom: 28px;
 }
 
 .book5-date-input {
   position: relative;
 
   width: 100%;
-  max-width: 1081px;
-  height: 74.13px;
+  max-width: 850px;
+  height: 56px;
 
   background-color: rgba(225, 192, 131, 0.15);
   border: 1px solid #e1c083;
@@ -2919,7 +2749,7 @@ html {
   display: flex;
   align-items: center;
 
-  padding: 0 20px;
+  padding: 0 18px;
   box-sizing: border-box;
 
   cursor: pointer;
@@ -2938,16 +2768,16 @@ html {
 
 .book5-date-input span {
   font-family: "Libertinus Serif", serif;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 400;
-  line-height: 36px;
+  line-height: 1;
   color: rgba(3, 52, 79, 0.64);
 }
 
 .book5-calendar-icon {
   margin-left: auto;
 
-  font-size: 42px !important;
+  font-size: 32px !important;
   color: #e1c083 !important;
   opacity: 1 !important;
 }
@@ -2955,18 +2785,18 @@ html {
 .book5-time-title {
   font-family: "Libertinus Serif", serif;
   font-weight: 400;
-  font-size: 48px;
-  line-height: 55px;
+  font-size: 34px;
+  line-height: 1.1;
   color: #03344f;
 
-  margin: 67px 0 34px 74px;
+  margin: 45px 0 28px;
 }
 
 .book5-time-grid {
   display: grid;
-  grid-template-columns: repeat(3, 337px);
-  column-gap: 40px;
-  row-gap: 54px;
+  grid-template-columns: repeat(3, 240px);
+  column-gap: 28px;
+  row-gap: 28px;
 
   justify-content: center;
 }
@@ -2974,41 +2804,17 @@ html {
 .book5-time-btn {
   position: relative;
 
-  width: 337px;
-  height: 112px;
+  width: 240px;
+  height: 78px;
 
   background-color: #ffffff;
   border: 1px solid #88858d;
   box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
 
   font-family: "Libertinus Serif", serif;
-  font-size: 48px;
+  font-size: 30px;
   font-weight: 400;
-  line-height: 55px;
-  color: #03344f;
-
-  cursor: pointer;
-  box-sizing: border-box;
-
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.book5-time-btn {
-  position: relative;
-
-  width: 337px;
-  height: 112px;
-
-  background-color: #ffffff;
-  border: 1px solid #88858d;
-  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
-
-  font-family: "Libertinus Serif", serif;
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 55px;
+  line-height: 1;
   color: #03344f;
 
   cursor: pointer;
@@ -3020,13 +2826,11 @@ html {
     transform 0.2s ease;
 }
 
-/* Normal hover only */
 .book5-time-btn:hover {
   border-color: #e1c083;
   transform: translateY(-2px);
 }
 
-/* Selected state after clicking */
 .book5-time-btn-selected {
   background-color: rgba(225, 192, 131, 0.23);
   border: 1px solid #e1c083;
@@ -3043,21 +2847,22 @@ html {
   content: "✓";
 
   position: absolute;
-  top: 12px;
-  right: 18px;
+  top: 9px;
+  right: 14px;
 
-  width: 34px;
-  height: 34px;
+  width: 24px;
+  height: 24px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1;
   color: #e1c083;
 }
+
 .book5-datepicker {
   width: 100%;
   height: 100%;
@@ -3066,47 +2871,47 @@ html {
   outline: none;
 
   font-family: "Libertinus Serif", serif;
-  font-size: 32px;
+  font-size: 22px;
   color: rgba(3, 52, 79, 0.64);
 }
 
-/* Makes the calendar popup bigger */
 .book5-calendar-popup {
-  font-size: 20px;
-  transform: scale(1.25);
+  font-size: 16px;
+  transform: scale(1.05);
   transform-origin: top left;
 }
 
 .book5-divider {
   width: 100%;
-  max-width: 1242px;
+  max-width: 850px;
   height: 1px;
 
   background-color: rgba(0, 0, 0, 0.4);
 
-  margin: 206px auto 58px;
+  margin: 70px auto 40px;
 }
+
 .book5-calendar-img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
 }
 
 .book5-buttons {
   width: 100%;
-  max-width: 1193px;
+  max-width: 850px;
 
   margin: 0 auto;
 }
 
 .book5-confirm-btn {
-  width: 287px;
-  height: 50px;
+  width: 235px;
+  height: 42px;
 
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 600;
-  line-height: 18px;
-  letter-spacing: 3px;
+  line-height: 1;
+  letter-spacing: 2.5px;
 }
 
 /* =========================
@@ -3114,10 +2919,10 @@ html {
    ========================= */
 
 .book6-card {
-  min-height: 949px;
-  margin-top: 128px;
-  margin-bottom: 120px;
-  padding: 55px 70px 90px;
+  margin-top: 60px;
+  margin-bottom: 85px;
+  padding: 55px 55px 45px;
+  min-height: auto;
 
   display: flex;
   flex-direction: column;
@@ -3127,8 +2932,8 @@ html {
 }
 
 .book6-check-icon {
-  width: 182px;
-  height: 182px;
+  width: 120px;
+  height: 120px;
 
   border-radius: 50%;
   background-color: rgba(225, 192, 131, 0.45);
@@ -3137,28 +2942,28 @@ html {
   align-items: center;
   justify-content: center;
 
-  font-size: 115px;
+  font-size: 76px;
   font-weight: 700;
   line-height: 1;
   color: #e1c083;
 
-  margin-bottom: 48px;
+  margin-bottom: 34px;
 }
 
 .book6-title {
   font-family: "Libertinus Serif", serif;
   font-weight: 400;
-  font-size: 64px;
-  line-height: 73px;
+  font-size: 44px;
+  line-height: 1.15;
   color: #03344f;
 
-  margin: 0 0 44px;
+  margin: 0 0 28px;
 }
 
 .book6-message {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 29px;
+  line-height: 1.5;
   color: #514f55;
 
   margin: 0;
@@ -3167,50 +2972,417 @@ html {
 .book6-summary {
   display: flex;
   justify-content: center;
-  gap: 33px;
+  gap: 24px;
 
-  margin-top: 56px;
+  margin-top: 38px;
 }
 
 .book6-summary-card {
-  width: 397px;
-  height: 140px;
+  width: 280px;
+  height: 105px;
 
   background-color: rgba(225, 192, 131, 0.23);
   box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
 
   text-align: left;
-  padding: 20px 23px;
+  padding: 18px 20px;
   box-sizing: border-box;
 }
 
 .book6-summary-card p {
-  font-size: 32px;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 39px;
+  line-height: 1.2;
   color: #e1c083;
 
-  margin: 0 0 12px;
+  margin: 0 0 8px;
 }
 
 .book6-summary-card h3 {
   font-family: "Libertinus Serif", serif;
-  font-size: 48px;
+  font-size: 30px;
   font-weight: 400;
-  line-height: 55px;
+  line-height: 1.1;
   color: #e1c083;
 
   margin: 0;
 }
 
 .book6-home-btn {
-  width: 287px;
-  height: 50px;
+  width: 235px;
+  height: 42px;
 
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 2.5px;
+
+  margin-top: 70px;
+}
+
+/* =========================
+   Responsive Book Pages
+   ========================= */
+
+@media (max-width: 900px) {
+  .book-hero {
+    height: 330px;
+    padding: 130px 32px 60px;
+  }
+
+  .book-title {
+    font-size: 52px;
+  }
+
+  .book-description {
+    font-size: 14px;
+  }
+
+  .book-card {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .book-card-title {
+    font-size: 36px;
+  }
+
+  .book1-card,
+  .book2-card,
+  .book3-card,
+  .book4-card,
+  .book5-card,
+  .book6-card {
+    margin-top: 50px;
+    margin-bottom: 70px;
+    padding: 42px 28px;
+  }
+
+  .book2-plan-wrapper {
+    flex-direction: column;
+  }
+
+  .book2-plan-card {
+    width: 100%;
+    height: auto;
+    min-height: 190px;
+  }
+
+  .book3-style-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book3-style-card {
+    width: 100%;
+  }
+
+  .book5-time-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book5-time-btn {
+    width: 100%;
+  }
+
+  .book6-summary {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .book-hero {
+    height: 300px;
+  }
+
+  .book-title {
+    font-size: 42px;
+  }
+
+  .book-progress-text {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .book-buttons {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .book-back-btn,
+  .book-continue-btn,
+  .book5-confirm-btn,
+  .book6-home-btn {
+    width: 100%;
+  }
+
+  .book4-upload-box {
+    height: 250px;
+  }
+
+  .book4-upload-box p {
+    font-size: 26px;
+  }
+
+  .book6-summary-card {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* =========================
+   Appointments Page
+   ========================= */
+
+.appointments-page {
+  background-color: #fffaf0;
+}
+
+.appointments-section {
+  padding: 107px 86px 130px;
+}
+
+.appointments-container {
+  max-width: 1259px;
+  margin: 0 auto;
+}
+
+.appointments-filters {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 72px;
+}
+
+.appointments-filter {
+  height: 47px;
+  padding: 0 32px;
+  border: 1px solid #cbcbcb;
+  border-radius: 37px;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #474646;
+  cursor: pointer;
+}
+
+.appointments-filter-active {
+  background-color: #03344f;
+  border-color: #03344f;
+  color: #ffffff;
+}
+
+.appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
+}
+
+.appointment-card {
+  min-height: 359px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.appointment-date-panel {
+  background-color: #03344f;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.appointment-month {
+  font-family: "Libertinus Serif", serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #e1c083;
+  margin: 0;
+}
+
+.appointment-day {
+  font-family: "Libertinus Serif", serif;
+  font-size: 128px;
+  font-weight: 700;
+  line-height: 128px;
+  color: #e1c083;
+  margin: 0;
+}
+
+.appointment-year,
+.appointment-time {
+  font-family: "Libertinus Serif", serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.appointment-year {
+  color: #cbcbcb;
+  margin-bottom: 10px;
+}
+
+.appointment-info {
+  padding: 47px 36px 24px 43px;
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.appointment-title {
+  font-family: "Libertinus Serif", serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #03344f;
+  margin: 0 0 8px;
+}
+
+.appointment-subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #514f55;
+  margin: 0;
+}
+
+.appointment-status {
+  min-width: 147px;
+  height: 47px;
+  padding: 0 18px;
+  border-radius: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 15px;
   font-weight: 600;
-  line-height: 18px;
   letter-spacing: 3px;
+}
 
-  margin-top: 160px;
+.appointment-status-confirmed {
+  background-color: #c6fce4;
+  border: 1px solid #28f0b9;
+  color: #00503a;
+}
+
+.appointment-status-canceled {
+  background-color: #ffcdc0;
+  border: 1px solid #ff0000;
+  color: #852d00;
+}
+
+.appointment-meta {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  margin-top: 58px;
+}
+
+.appointment-meta p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #514f55;
+  margin: 0;
+}
+
+.appointment-cal-icon {
+  width: 20.25px !important;
+  height: 22.5px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.appointment-location-icon {
+  width: 18px !important;
+  height: 24px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.appointment-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #cbcbcb;
+  margin-top: auto;
+  margin-bottom: 22px;
+}
+
+.appointment-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.appointment-cancel-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #514f55;
+  cursor: pointer;
+}
+
+/* Empty Appointments */
+
+.appointments-empty-card {
+  min-height: 644px;
+  padding: 90px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.appointments-empty-icon {
+  width: 85px;
+  height: 81px;
+  border: none;
+  margin-bottom: 34px;
+}
+
+.appointments-empty-img {
+  width: 85px !important;
+  height: 81px !important;
+  object-fit: contain;
+  display: block;
+}
+
+.appointments-empty-card h2 {
+  font-family: "Libertinus Serif", serif;
+  font-size: 75px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 18px;
+}
+
+.appointments-empty-card p {
+  font-size: 24px;
+  font-weight: 500;
+  color: #514f55;
+  margin: 0 0 50px;
+}
+
+.appointments-empty-btn {
+  width: 389px;
+  height: 65px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-decoration: none;
 }
