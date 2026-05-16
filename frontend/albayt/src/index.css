@@ -1,111 +1,165 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+/* Header */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  height: 88px;
+  padding: 0 48px;
+
   display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #ffffff;
+  box-shadow: 0 4px 40px rgba(41, 39, 66, 0.12);
+  border-radius: 0 0 55px 55px;
+
+  font-family: "Montserrat", sans-serif;
+  transition:
+    background-color 0.3s,
+    height 0.3s;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+.header-scrolled {
+  height: 78px;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.albayt-logo {
+  width: 186px;
+  height: 77px;
+  object-fit: contain;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.almadayn-logo {
+  width: 108px;
+  height: 85px;
+  object-fit: contain;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #353434;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.nav-link:visited {
+  color: #353434;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #e3bd7a;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.nav-link:active {
+  color: #d9ad63;
+  text-decoration: none;
+  transform: scale(0.96);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.language-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #777777;
+  letter-spacing: 1px;
+
+  border: none;
+  background: none;
+
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.language-btn:hover {
+  color: #e3bd7a;
+  transform: translateY(-2px);
+}
+
+.language-btn:active {
+  transform: scale(0.96);
+}
+
+.gold-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  padding: 9px 22px;
+
+  border: none;
+  border-radius: 999px;
+
+  background-color: #e3bd7a;
+  color: #000000;
+
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s;
+}
+
+.gold-btn:hover {
+  background-color: #d9ad63;
+  box-shadow: 0 8px 18px rgba(227, 189, 122, 0.45);
+  transform: translateY(-2px);
+}
+
+.gold-btn:active {
+  transform: scale(0.96);
+}
+
+/* Page content */
+
+main {
+  padding-top: 100px;
 }
