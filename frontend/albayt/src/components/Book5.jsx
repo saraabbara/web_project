@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Cal from "../assets/images/cal.png";
 
 function Book5({ bookingData, setBookingData }) {
   const navigate = useNavigate();
+  const dateInputRef = useRef(null);
 
   const handleDateChange = (e) => {
     setBookingData({
       ...bookingData,
       bookingDate: e.target.value,
     });
+  };
+
+  const openDatePicker = () => {
+    if (dateInputRef.current) {
+      if (dateInputRef.current.showPicker) {
+        dateInputRef.current.showPicker();
+      } else {
+        dateInputRef.current.click();
+      }
+    }
   };
 
   const selectTime = (time) => {
@@ -20,9 +31,17 @@ function Book5({ bookingData, setBookingData }) {
   };
 
   const handleConfirmBooking = () => {
-    console.log("Final booking data:", bookingData);
+    if (!bookingData.bookingDate) {
+      alert("Please pick a date.");
+      return;
+    }
 
-    // Later, this is where you will send bookingData to PHP.
+    if (!bookingData.bookingTime) {
+      alert("Please pick a time.");
+      return;
+    }
+
+    console.log("Final booking data:", bookingData);
     navigate("/book6");
   };
 
@@ -61,8 +80,18 @@ function Book5({ bookingData, setBookingData }) {
       <section className="book-card book5-card">
         <h2 className="book-card-title">Pick a date</h2>
 
-        <label htmlFor="bookingDate" className="book5-date-input">
+        <div
+          className="book5-date-input"
+          onClick={openDatePicker}
+          role="button"
+          tabIndex="0"
+        >
+          <span>
+            {bookingData.bookingDate ? bookingData.bookingDate : "Pick a date"}
+          </span>
+
           <input
+            ref={dateInputRef}
             type="date"
             id="bookingDate"
             name="bookingDate"
@@ -70,14 +99,10 @@ function Book5({ bookingData, setBookingData }) {
             onChange={handleDateChange}
           />
 
-          <span>
-            {bookingData.bookingDate ? bookingData.bookingDate : "Pick a date"}
-          </span>
-
           <span className="book5-calendar-icon">
             <img src={Cal} alt="Calendar" className="book5-calendar-img" />
           </span>
-        </label>
+        </div>
 
         <h3 className="book5-time-title">Pick a time</h3>
 

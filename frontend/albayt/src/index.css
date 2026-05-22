@@ -2738,22 +2738,13 @@ html {
 
   opacity: 0;
   cursor: pointer;
+  z-index: 2;
 }
 
-.book5-date-input span {
-  font-family: "Libertinus Serif", serif;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 1;
-  color: rgba(3, 52, 79, 0.64);
-}
-
+.book5-date-input span,
 .book5-calendar-icon {
-  margin-left: auto;
-
-  font-size: 32px !important;
-  color: #e1c083 !important;
-  opacity: 1 !important;
+  position: relative;
+  z-index: 1;
 }
 
 .book5-time-title {
@@ -3435,3 +3426,191 @@ html {
     gap: 18px;
   }
 }
+
+.signup-message {
+  margin: 0 0 18px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #03344f;
+}
+
+.profile-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.profile-icon {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  background-color: #03344f;
+  color: #e1c083;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+.profile-icon:hover {
+  transform: translateY(-2px);
+  background-color: #064766;
+}
+
+.logout-btn {
+  border: none;
+  background: none;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #353434;
+
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: #e1c083;
+}
+
+.appointment-canceled-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #852d00;
+}
+
+.cancel-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  background-color: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+}
+
+.cancel-modal {
+  width: 100%;
+  max-width: 460px;
+
+  background-color: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+
+  padding: 42px 38px 34px;
+  text-align: center;
+}
+
+.cancel-modal-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 22px;
+
+  border-radius: 50%;
+  background-color: rgba(225, 192, 131, 0.25);
+  color: #e1c083;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.cancel-modal h2 {
+  font-family: "Libertinus Serif", serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #03344f;
+
+  margin: 0 0 14px;
+}
+
+.cancel-modal p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #514f55;
+
+  margin: 0 0 32px;
+}
+
+.cancel-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.cancel-modal-back,
+.cancel-modal-confirm {
+  height: 42px;
+  padding: 0 24px;
+
+  border-radius: 999px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s,
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.cancel-modal-back {
+  background-color: #ffffff;
+  border: 1px solid #d2cbcb;
+  color: #514f55;
+}
+
+.cancel-modal-confirm {
+  background-color: #03344f;
+  border: 1px solid #03344f;
+  color: #ffffff;
+}
+
+.cancel-modal-back:hover,
+.cancel-modal-confirm:hover {
+  transform: translateY(-2px);
+}
+
+.cancel-modal-confirm:hover {
+  background-color: #064766;
+}
+
+@media (max-width: 600px) {
+  .cancel-modal-actions {
+    flex-direction: column;
+  }
+
+  .cancel-modal-back,
+  .cancel-modal-confirm {
+    width: 100%;
+  }
+}
+

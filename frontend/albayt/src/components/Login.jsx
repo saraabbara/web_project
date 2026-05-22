@@ -1,11 +1,51 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 import loginImg from "../assets/images/login-image.png";
 import eyeImg from "../assets/images/eye.png";
 import eyeOffImg from "../assets/images/eye-off.png";
 
 function Login() {
-  let [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [message, setMessage] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      setMessage("Please enter your email and password.");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:8000/login.php", {
+        email: email,
+        password: password,
+      });
+
+      console.log("Login response:", response.data);
+
+      if (response.data.success) {
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+
+        setMessage("Login successful!");
+
+        navigate("/appointments");
+      } else {
+        setMessage(response.data.message);
+      }
+    } catch (error) {
+      console.log("Login error:", error);
+      setMessage("Could not connect to PHP.");
+    }
+  };
 
   return (
     <main className="login-page">
@@ -21,10 +61,16 @@ function Login() {
             Check your order status and book new consultations.
           </p>
 
-          <form className="login-form">
+          <form className="login-form" onSubmit={handleLogin}>
             <div className="login-group">
               <label>Email *</label>
-              <input type="email" placeholder="youremail@email.com" />
+
+              <input
+                type="email"
+                placeholder="youremail@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
 
             <div className="login-group">
@@ -34,6 +80,8 @@ function Login() {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="****************"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
 
                 <button
@@ -52,6 +100,8 @@ function Login() {
             <Link to="/forgot-password" className="forgot-link">
               Forgot Password
             </Link>
+
+            {message && <p className="signup-message">{message}</p>}
 
             <button type="submit" className="login-submit">
               LOG IN

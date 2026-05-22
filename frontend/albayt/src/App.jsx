@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -31,47 +30,28 @@ import Book6 from "./components/Book6";
 
 import "./index.css";
 
+const emptyBookingData = {
+  fullName: "",
+  phoneNumber: "",
+  email: "",
+  plan: "",
+  style: "",
+  floorPlanFile: null,
+  floorPlanFileName: "",
+  bookingDate: "",
+  bookingTime: "",
+};
+
 function App() {
-  const [bookingData, setBookingData] = useState({
-    fullName: "",
-    phoneNumber: "",
-    email: "",
-    plan: "",
-    style: "",
-    floorPlanFile: null,
-    floorPlanFileName: "",
-    bookingDate: "",
-    bookingTime: "",
-  });
+  const [bookingData, setBookingData] = useState(emptyBookingData);
 
-  const [apiStatus, setApiStatus] = useState("Testing PHP connection...");
-
-  useEffect(() => {
-    Promise.all([
-      axios.get("http://localhost:8000/users.php"),
-      axios.get("http://localhost:8000/appointments.php"),
-      axios.get("http://localhost:8000/contact.php"),
-    ])
-      .then(([usersResponse, appointmentsResponse, contactResponse]) => {
-        console.log("Users PHP:", usersResponse.data);
-        console.log("Appointments PHP:", appointmentsResponse.data);
-        console.log("Contact PHP:", contactResponse.data);
-
-        setApiStatus("React is connected to PHP!");
-      })
-      .catch((error) => {
-        console.log("PHP connection error:", error);
-        setApiStatus("React is NOT connected to PHP");
-      });
-  }, []);
+  const resetBookingData = () => {
+    setBookingData(emptyBookingData);
+  };
 
   return (
     <Router>
       <Header />
-
-      {/* <p style={{ textAlign: "center", padding: "10px", fontWeight: "bold" }}>
-        {apiStatus}
-      </p> */}
 
       <Routes>
         {/* Home Page */}
@@ -95,11 +75,10 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/appointments" element={<Appointments />} />
 
         {/* Book Appointment */}
         <Route path="/book" element={<Navigate to="/book1" />} />
-
-        <Route path="/appointments" element={<Appointments />} />
 
         {/* Booking Pages */}
         <Route
@@ -137,7 +116,15 @@ function App() {
           }
         />
 
-        <Route path="/book6" element={<Book6 bookingData={bookingData} />} />
+        <Route
+          path="/book6"
+          element={
+            <Book6
+              bookingData={bookingData}
+              resetBookingData={resetBookingData}
+            />
+          }
+        />
       </Routes>
 
       <Footer />
