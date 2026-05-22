@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import {
   BrowserRouter as Router,
   Routes,
@@ -43,9 +44,34 @@ function App() {
     bookingTime: "",
   });
 
+  const [apiStatus, setApiStatus] = useState("Testing PHP connection...");
+
+  useEffect(() => {
+    Promise.all([
+      axios.get("http://localhost:8000/users.php"),
+      axios.get("http://localhost:8000/appointments.php"),
+      axios.get("http://localhost:8000/contact.php"),
+    ])
+      .then(([usersResponse, appointmentsResponse, contactResponse]) => {
+        console.log("Users PHP:", usersResponse.data);
+        console.log("Appointments PHP:", appointmentsResponse.data);
+        console.log("Contact PHP:", contactResponse.data);
+
+        setApiStatus("React is connected to PHP!");
+      })
+      .catch((error) => {
+        console.log("PHP connection error:", error);
+        setApiStatus("React is NOT connected to PHP");
+      });
+  }, []);
+
   return (
     <Router>
       <Header />
+
+      {/* <p style={{ textAlign: "center", padding: "10px", fontWeight: "bold" }}>
+        {apiStatus}
+      </p> */}
 
       <Routes>
         {/* Home Page */}
@@ -66,7 +92,6 @@ function App() {
         {/* Normal Pages */}
         <Route path="/projects" element={<Projects />} />
         <Route path="/project-details/:id" element={<ProjectDetails />} />
-        <Route path="/appointments" element={<Appointments />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />

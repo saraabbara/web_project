@@ -21,7 +21,7 @@ function Book1({ bookingData, setBookingData }) {
   return (
     <main className="book-page">
       <section className="projects-hero">
-        <p className="projects-label">Book</p>
+        <p className="projects-label">BOOK</p>
 
         <h1 className="projects-title">Book a Consultation</h1>
 

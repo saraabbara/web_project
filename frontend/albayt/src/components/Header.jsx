@@ -50,8 +50,6 @@ function Header() {
 
       {/* Right Actions */}
       <div className="header-actions">
-        <button className="language-btn">العربية</button>
-
         <Link to="/login" className="main-btn header-btn">
           Log in
         </Link>
