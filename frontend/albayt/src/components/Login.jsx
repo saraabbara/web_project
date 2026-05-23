@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import loginImg from "../assets/images/login-image.png";
@@ -8,6 +8,9 @@ import eyeOffImg from "../assets/images/eye-off.png";
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from || "/";
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -37,7 +40,7 @@ function Login() {
 
         setMessage("Login successful!");
 
-        navigate("/appointments");
+        navigate(from);
       } else {
         setMessage(response.data.message);
       }
@@ -109,7 +112,7 @@ function Login() {
 
             <p className="signup-text">
               Don&apos;t have an account?{" "}
-              <Link to="/signup" className="signup-link">
+              <Link to="/signup" state={{ from }} className="signup-link">
                 Sign Up
               </Link>
             </p>

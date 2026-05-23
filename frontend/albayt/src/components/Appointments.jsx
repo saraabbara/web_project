@@ -46,8 +46,10 @@ function Appointments() {
     const allAppointments = getSavedAppointments();
 
     const userAppointments = allAppointments
-  .filter((appointment) => String(appointment.user_id) === String(user.user_id))
-  .sort((a, b) => Number(b.id) - Number(a.id));
+      .filter(
+        (appointment) => String(appointment.user_id) === String(user.user_id),
+      )
+      .sort((a, b) => Number(b.id) - Number(a.id));
 
     setAppointments(userAppointments);
     setLoading(false);
@@ -141,7 +143,7 @@ function Appointments() {
 
     localStorage.setItem(
       "appointments",
-      JSON.stringify(updatedAllAppointments)
+      JSON.stringify(updatedAllAppointments),
     );
 
     setAppointmentToCancel(null);
@@ -228,7 +230,7 @@ function Appointments() {
                       <div className="appointment-top-row">
                         <div>
                           <h2 className="appointment-title">
-                            {appointment.plan || "Consultation"}
+                            {appointment.decor_plan || "Consultation"}
                           </h2>
 
                           <p className="appointment-subtitle">
@@ -317,7 +319,9 @@ function Appointments() {
 
             <p>
               Are you sure you want to cancel your{" "}
-              <strong>{appointmentToCancel.plan || "consultation"}</strong>{" "}
+              <strong>
+                {appointmentToCancel.decor_plan || "consultation"}
+              </strong>{" "}
               appointment?
             </p>
 

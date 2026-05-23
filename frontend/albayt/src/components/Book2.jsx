@@ -87,7 +87,14 @@ function Book2({ bookingData, setBookingData }) {
           <button
             type="button"
             className="main-btn book-continue-btn"
-            onClick={() => navigate("/book3")}
+            onClick={() => {
+              if (!bookingData.plan) {
+                alert("Please choose a plan.");
+                return;
+              }
+
+              navigate("/book3");
+            }}
           >
             CONTINUE
           </button>

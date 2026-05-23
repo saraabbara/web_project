@@ -14,6 +14,14 @@ function Book1({ bookingData, setBookingData }) {
   };
 
   const handleSubmit = (e) => {
+    if (
+      !bookingData.fullName ||
+      !bookingData.phoneNumber ||
+      !bookingData.email
+    ) {
+      alert("Please fill in all fields.");
+      return;
+    }
     e.preventDefault();
     navigate("/book2");
   };

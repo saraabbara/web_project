@@ -28,6 +28,12 @@ import Book4 from "./components/Book4";
 import Book5 from "./components/Book5";
 import Book6 from "./components/Book6";
 
+import Living from "./components/Living";
+import Bedroom from "./components/Bedroom";
+import HomeDecor from "./components/HomeDecor";
+
+import ScrollToTop from "./components/ScrollToTop";
+
 import "./index.css";
 
 const emptyBookingData = {
@@ -42,6 +48,16 @@ const emptyBookingData = {
   bookingTime: "",
 };
 
+function RequireLogin({ children }) {
+  const savedUser = localStorage.getItem("user");
+
+  if (!savedUser) {
+    return <Navigate to="/login" state={{ from: "/book1" }} replace />;
+  }
+
+  return children;
+}
+
 function App() {
   const [bookingData, setBookingData] = useState(emptyBookingData);
 
@@ -51,6 +67,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Header />
 
       <Routes>
@@ -84,7 +101,12 @@ function App() {
         <Route
           path="/book1"
           element={
-            <Book1 bookingData={bookingData} setBookingData={setBookingData} />
+            <RequireLogin>
+              <Book1
+                bookingData={bookingData}
+                setBookingData={setBookingData}
+              />
+            </RequireLogin>
           }
         />
 
@@ -125,6 +147,10 @@ function App() {
             />
           }
         />
+
+        <Route path="/living" element={<Living />} />
+        <Route path="/bedroom" element={<Bedroom />} />
+        <Route path="/homedecor" element={<HomeDecor />} />
       </Routes>
 
       <Footer />

@@ -115,7 +115,7 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2026 Mayden & Albayt Decor. All rights reserved.</p>
+          <p>&copy; 2026 Madayen & Albayt Decor. All rights reserved.</p>
         </div>
       </div>
     </footer>

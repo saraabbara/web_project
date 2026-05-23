@@ -647,6 +647,15 @@ html {
   font-size: 16px;
   color: #333333;
 }
+.furniture-item {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.furniture-item:hover {
+  text-decoration: none;
+}
 
 /* Services Section */
 
@@ -3613,4 +3622,200 @@ html {
     width: 100%;
   }
 }
+/* =========================
+   Shared Furniture Category Pages
+   Used by Living, Bedroom, HomeDecor
+   ========================= */
 
+.furniture-category-page {
+  background-color: #fffaf0;
+  min-height: 100vh;
+}
+
+/* Hero */
+
+.furniture-category-hero {
+  min-height: 360px;
+  padding: 145px 80px 75px;
+
+  background-color: #03344f;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.furniture-category-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #e1c083;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  margin: 0 0 14px;
+}
+
+.furniture-category-title {
+  font-family: "Libertinus Serif", serif;
+  font-size: 68px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+
+  margin: 0 0 22px;
+
+  text-shadow: 0px -10px 71.7px #000000;
+}
+
+.furniture-category-description {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+
+  margin: 0;
+}
+
+/* Main Section */
+
+.furniture-category-section {
+  padding: 75px 70px 100px;
+  background-color: #fffaf0;
+}
+
+.furniture-category-container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.furniture-category-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.furniture-category-small-label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 7px;
+  color: #979797;
+
+  margin: 0 0 10px;
+}
+
+.furniture-category-section-title {
+  font-family: "Libertinus Serif", serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #03344f;
+
+  margin: 0;
+}
+
+/* Image Grid: 3 rows x 5 columns */
+
+.furniture-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+/* Image Card */
+
+.furniture-category-card {
+  width: 100%;
+  height: 230px;
+
+  background-color: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+
+  box-shadow: 0px 1px 7.1px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.furniture-category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 14px 22px rgba(0, 0, 0, 0.15);
+}
+
+.furniture-category-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  display: block;
+}
+
+.furniture-category-card:hover .furniture-category-image {
+  transform: scale(1.05);
+}
+
+/* =========================
+   Responsive Furniture Pages
+   ========================= */
+
+@media (max-width: 1200px) {
+  .furniture-category-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .furniture-category-card {
+    height: 220px;
+  }
+}
+
+@media (max-width: 900px) {
+  .furniture-category-hero {
+    min-height: 330px;
+    padding: 140px 32px 65px;
+  }
+
+  .furniture-category-title {
+    font-size: 52px;
+  }
+
+  .furniture-category-section {
+    padding: 65px 32px 85px;
+  }
+
+  .furniture-category-section-title {
+    font-size: 44px;
+  }
+
+  .furniture-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .furniture-category-card {
+    height: 210px;
+  }
+}
+
+@media (max-width: 600px) {
+  .furniture-category-title {
+    font-size: 42px;
+  }
+
+  .furniture-category-description {
+    font-size: 13px;
+  }
+
+  .furniture-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .furniture-category-card {
+    height: 240px;
+  }
+}

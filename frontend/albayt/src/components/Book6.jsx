@@ -24,20 +24,16 @@ function Book6({ bookingData, resetBookingData }) {
       }
 
       const newAppointment = {
-        id: Date.now(),
         user_id: user.user_id,
         full_name: finalBookingData.current.fullName,
         phone_number: finalBookingData.current.phoneNumber,
         email: finalBookingData.current.email,
-        plan: finalBookingData.current.plan,
+        decor_plan: finalBookingData.current.plan,
         style: finalBookingData.current.style,
-        floor_plan_file_name: finalBookingData.current.floorPlanFileName,
+        floor_plan_upload: finalBookingData.current.floorPlanFileName,
         date: finalBookingData.current.bookingDate,
         time: finalBookingData.current.bookingTime,
-        designer: "Albayt Designer",
-        location: "Riyadh",
         status: "confirmed",
-        created_at: new Date().toISOString(),
       };
 
       const savedAppointments =
@@ -50,7 +46,7 @@ function Book6({ bookingData, resetBookingData }) {
       try {
         const response = await axios.post(
           "http://localhost:8000/appointments.php",
-          newAppointment
+          newAppointment,
         );
 
         console.log("PHP booking response:", response.data);

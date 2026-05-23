@@ -8,6 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     exit;
 }
 
+$conn = new mysqli("127.0.0.1", "root", "", "albaytdecor");
+
+if ($conn->connect_error) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Database connection failed."
+    ]);
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
     echo json_encode([
         "success" => true,
@@ -19,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
 
-    $email = $data["email"] ?? "";
-    $password = $data["password"] ?? "";
+    $email = isset($data["email"]) ? trim($data["email"]) : "";
+    $password = isset($data["password"]) ? trim($data["password"]) : "";
 
     if ($email === "" || $password === "") {
         echo json_encode([
@@ -30,30 +40,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    // Temporary users until MySQL is connected
-    $users = [
-        [
-            "user_id" => 1,
-            "fullName" => "Sara Abbara",
-            "email" => "test@email.com",
-            "password" => "123456"
-        ],
-        [
-            "user_id" => 2,
-            "fullName" => "Maha Shaheen",
-            "email" => "maha@email.com",
-            "password" => "123456"
-        ]
-    ];
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
 
-    foreach ($users as $user) {
-        if ($user["email"] === $email && $user["password"] === $password) {
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        if (password_verify($password, $user["password"])) {
             echo json_encode([
                 "success" => true,
                 "message" => "Login successful",
                 "user" => [
                     "user_id" => $user["user_id"],
-                    "fullName" => $user["fullName"],
+                    "full_name" => $user["full_name"],
+                    "fullName" => $user["full_name"],
                     "email" => $user["email"]
                 ]
             ]);

@@ -9,6 +9,10 @@ import twitterImg from "../assets/images/twitterBlue.png";
 import linkedinImg from "../assets/images/linkedinBlue.png";
 
 import arrowImg from "../assets/images/arrow.png";
+
+import { useState } from "react";
+import axios from "axios";
+
 const showrooms = [
   {
     title: "Jeddah Showroom",
@@ -43,6 +47,61 @@ const socialLinks = [
 ];
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [formMessage, setFormMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      setFormMessage("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/contact.php",
+        formData,
+      );
+
+      if (response.data.success) {
+        setFormMessage("Message sent successfully.");
+
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setFormMessage(response.data.message || "Message could not be sent.");
+      }
+    } catch (error) {
+      console.log("Contact form error:", error);
+      setFormMessage("Could not connect to PHP.");
+    }
+  };
+
   return (
     <main className="contact-page">
       <section
@@ -64,30 +123,51 @@ function Contact() {
 
       <section className="contact-section">
         <div className="contact-container">
-          <form className="contact-form-card">
+          <form className="contact-form-card" onSubmit={handleSubmit}>
             <h2 className="contact-form-title">Send a message</h2>
 
             <div className="form-row">
               <div className="form-group">
                 <label>NAME</label>
-                <input type="text" />
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
               </div>
 
               <div className="form-group">
                 <label>EMAIL</label>
-                <input type="email" />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
               </div>
             </div>
 
             <div className="form-group">
               <label>SUBJECT</label>
-              <input type="text" />
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+              />
             </div>
 
             <div className="form-group">
               <label>MESSAGE</label>
-              <textarea></textarea>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+              ></textarea>
             </div>
+
+            {formMessage && <p className="signup-message">{formMessage}</p>}
 
             <button type="submit" className="main-btn contact-send-btn">
               SEND MESSAGE
@@ -106,12 +186,12 @@ function Contact() {
 
                 <div className="showroom-item">
                   <img src={phoneImg} alt="" />
-                  <span>{showroom.phone}</span>
+                  <span>+966 55 540 3250</span>
                 </div>
 
                 <div className="showroom-item">
                   <img src={emailImg} alt="" />
-                  <span>{showroom.email}</span>
+                  <span>info@albaytdecor.com</span>
                 </div>
               </div>
             ))}

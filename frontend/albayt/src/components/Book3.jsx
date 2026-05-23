@@ -115,7 +115,14 @@ function Book3({ bookingData, setBookingData }) {
           <button
             type="button"
             className="main-btn book-continue-btn"
-            onClick={() => navigate("/book4")}
+            onClick={() => {
+              if (!bookingData.style) {
+                alert("Please choose a style.");
+                return;
+              }
+
+              navigate("/book4");
+            }}
           >
             CONTINUE
           </button>
