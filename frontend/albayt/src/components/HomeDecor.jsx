@@ -1,6 +1,3 @@
-import Header from "./Header";
-import Footer from "./Footer";
-
 import decor1 from "../assets/images/decor1.jpg";
 import decor2 from "../assets/images/decor2.jpg";
 import decor3 from "../assets/images/decor3.jpg";
@@ -17,7 +14,8 @@ import decor13 from "../assets/images/decor13.jpg";
 import decor14 from "../assets/images/decor14.jpg";
 import decor15 from "../assets/images/decor15.jpg";
 
-const livingItems = [
+//same logic as the bedroom.jsx
+const decorItems = [
   { image: decor1 },
   { image: decor2 },
   { image: decor3 },
@@ -35,10 +33,9 @@ const livingItems = [
   { image: decor15 },
 ];
 
-function Living() {
+function HomeDecor() {
   return (
     <div className="furniture-category-page">
-      <Header />
 
       <section className="furniture-category-hero">
         <p className="furniture-category-label">FURNITURE COLLECTION</p>
@@ -61,7 +58,7 @@ function Living() {
           </div>
 
           <div className="furniture-category-grid">
-            {livingItems.map((item, index) => (
+            {decorItems.map((item, index) => (
               <div className="furniture-category-card" key={index}>
                 <img
                   src={item.image}
@@ -77,4 +74,4 @@ function Living() {
   );
 }
 
-export default Living;
+export default HomeDecor;

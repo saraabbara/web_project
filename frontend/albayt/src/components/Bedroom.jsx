@@ -1,6 +1,3 @@
-import Header from "./Header";
-import Footer from "./Footer";
-
 import bedroom1 from "../assets/images/bedroom1.jpg";
 import bedroom2 from "../assets/images/bedroom2.jpg";
 import bedroom3 from "../assets/images/bedroom3.jpg";
@@ -17,7 +14,8 @@ import bedroom13 from "../assets/images/bedroom13.jpg";
 import bedroom14 from "../assets/images/bedroom14.jpg";
 import bedroom15 from "../assets/images/bedroom15.jpg";
 
-const livingItems = [
+// Stores all bedroom images in one array, its easier to display them using map instead of writing each card manually
+const bedroomItems = [
   { image: bedroom1 },
   { image: bedroom2 },
   { image: bedroom3 },
@@ -35,10 +33,9 @@ const livingItems = [
   { image: bedroom15 },
 ];
 
-function Living() {
+function Bedroom() {
   return (
     <div className="furniture-category-page">
-      <Header />
 
       <section className="furniture-category-hero">
         <p className="furniture-category-label">FURNITURE COLLECTION</p>
@@ -61,7 +58,8 @@ function Living() {
           </div>
 
           <div className="furniture-category-grid">
-            {livingItems.map((item, index) => (
+            {/* Loops through livingItems and creates one image card for each item */}
+            {bedroomItems.map((item, index) => (
               <div className="furniture-category-card" key={index}>
                 <img
                   src={item.image}
@@ -77,4 +75,4 @@ function Living() {
   );
 }
 
-export default Living;
+export default Bedroom;

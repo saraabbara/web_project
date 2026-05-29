@@ -1,6 +1,3 @@
-import Header from "./Header";
-import Footer from "./Footer";
-
 import living1 from "../assets/images/living1.jpg";
 import living2 from "../assets/images/Living2.jpg";
 import living3 from "../assets/images/Living3.jpg";
@@ -35,10 +32,10 @@ const livingItems = [
   { image: living15 },
 ];
 
+//same logic as the bedroom.jsx
 function Living() {
   return (
     <div className="furniture-category-page">
-      <Header />
 
       <section className="furniture-category-hero">
         <p className="furniture-category-label">FURNITURE COLLECTION</p>

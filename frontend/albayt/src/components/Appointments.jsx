@@ -114,63 +114,84 @@ function Appointments() {
     };
   };
 
-
+  // to double check: the cancellation confirmation popup
   const openCancelModal = (appointment) => {
     setAppointmentToCancel(appointment);
   };
 
+  // to close the cancellation confirmation popup
   const closeCancelModal = () => {
     setAppointmentToCancel(null);
   };
 
+  // to cancel the selected appointment
   const confirmCancelAppointment = async () => {
+    //to check if theres actually an appointment is selected
     if (!appointmentToCancel) return;
 
     try {
+      // sends a POST request to PHP to update the appointment status in MySQL
       const response = await axios.post("http://localhost:8000/appointments.php", {
         action: "cancel",
         appointment_id: appointmentToCancel.appointment_id,
         user_id: user.user_id,
       });
 
+      //for testing only
       console.log("Cancel response:", response.data);
 
+      //if the cancelling is a success, update the userInterface from Active to canceled
       if (response.data.success) {
         const updatedAppointments = appointments.map((appointment) => {
           if (
             String(appointment.appointment_id) ===
             String(appointmentToCancel.appointment_id)
           ) {
+            // to return the same appointment but with status changed to canceled
             return {
               ...appointment,
               status: "canceled",
             };
           }
-
+          // to make sure all other appointments remain unchanged
           return appointment;
         });
 
+        //setAppointments to put the updated appointments
         setAppointments(updatedAppointments);
+        // close the confirmation popup
         setAppointmentToCancel(null);
       } else {
+        //for testing
         alert(response.data.message || "Could not cancel appointment.");
       }
     } catch (error) {
+      //in case of error in connecting to php
       console.log("Cancel error:", error);
       alert("Could not connect to PHP.");
     }
   };
 
+  // Filters appointments based on the selected filter button (active or cancelled)
   const filteredAppointments = appointments.filter((appointment) => {
     const status = appointment.status || "confirmed";
 
-    if (filter === "all") return true;
-    if (filter === "active") return status === "confirmed";
-    if (filter === "cancelled") return status === "canceled";
+    // Show all appointments
+    if (filter === "all") 
+      return true;
+
+    // Show only active appointments
+    if (filter === "active") 
+      return status === "confirmed";
+    
+    // Show only canceled appointments
+    if (filter === "cancelled") 
+      return status === "canceled";
 
     return true;
   });
 
+  // Checks if there are appointments after filtering
   const hasAppointments = filteredAppointments.length > 0;
 
   if (loading) {
@@ -179,6 +200,7 @@ function Appointments() {
 
   return (
     <main className="appointments-page book-page">
+      {/* Page heading section, the same css styling as the projects */}
       <section className="projects-hero">
         <p className="projects-label">MY APPOINTMENTS</p>
 
@@ -189,8 +211,10 @@ function Appointments() {
         </p>
       </section>
 
+      {/* Main appointments content */}
       <section className="appointments-section">
         <div className="appointments-container">
+          {/* Filter buttons */}
           <div className="appointments-filters">
             <button
               type="button"
@@ -222,11 +246,13 @@ function Appointments() {
               CANCELLED
             </button>
           </div>
-
+          {/* appointments UI */}
           {hasAppointments ? (
             <div className="appointments-list">
               {filteredAppointments.map((appointment) => {
+                // to get the formatted date parts for each appointment
                 const dateParts = getDateParts(appointment.date);
+                // use confirmed by default and check the status
                 const status = appointment.status || "confirmed";
 
                 return (
@@ -311,6 +337,8 @@ function Appointments() {
               })}
             </div>
           ) : (
+            // Empty state shown when there are no appointments, to book new appointments
+
             <div className="appointments-empty-card book-card">
               <div className="appointments-empty-icon">
                 <img
@@ -332,6 +360,7 @@ function Appointments() {
         </div>
       </section>
 
+      {/* Confirmation popup shown before canceling an appointment */}
       {appointmentToCancel && (
         <div className="cancel-modal-overlay">
           <div className="cancel-modal">
