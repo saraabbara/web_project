@@ -1,59 +1,62 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-import living1 from "../assets/images/living1.jpg";
-import living2 from "../assets/images/Living2.jpg";
-import living3 from "../assets/images/Living3.jpg";
-import living4 from "../assets/images/Living4.jpg";
-import living5 from "../assets/images/Living5.jpg";
-import living6 from "../assets/images/Living6.jpg";
-import living7 from "../assets/images/Living7.jpg";
-import living8 from "../assets/images/Living8.jpg";
-import living9 from "../assets/images/Living9.jpg";
-import living10 from "../assets/images/Living10.jpg";
-import living11 from "../assets/images/Living11.jpg";
-import living12 from "../assets/images/Living12.jpg";
-import living13 from "../assets/images/Living13.jpg";
-import living14 from "../assets/images/Living14.jpg";
-import living15 from "../assets/images/Living15.jpg";
+import decor1 from "../assets/images/decor1.jpg";
+import decor2 from "../assets/images/decor2.jpg";
+import decor3 from "../assets/images/decor3.jpg";
+import decor4 from "../assets/images/decor4.jpg";
+import decor5 from "../assets/images/decor5.jpg";
+import decor6 from "../assets/images/decor6.jpg";
+import decor7 from "../assets/images/decor7.jpg";
+import decor8 from "../assets/images/decor8.jpg";
+import decor9 from "../assets/images/decor9.jpg";
+import decor10 from "../assets/images/decor10.jpg";
+import decor11 from "../assets/images/decor11.jpg";
+import decor12 from "../assets/images/decor12.jpg";
+import decor13 from "../assets/images/decor13.jpg";
+import decor14 from "../assets/images/decor14.jpg";
+import decor15 from "../assets/images/decor15.jpg";
 
 const livingItems = [
-  { name: "Living Sofa", image: living1 },
-  { name: "Accent Chair", image: living2 },
-  { name: "Coffee Table", image: living3 },
-  { name: "TV Unit", image: living4 },
-  { name: "Side Table", image: living5 },
-  { name: "Lounge Chair", image: living6 },
-  { name: "Console Table", image: living7 },
-  { name: "Modern Sofa", image: living8 },
-  { name: "Decor Shelf", image: living9 },
-  { name: "Armchair", image: living10 },
-  { name: "Center Table", image: living11 },
-  { name: "Storage Unit", image: living12 },
-  { name: "Luxury Sofa", image: living13 },
-  { name: "Wooden Table", image: living14 },
-  { name: "Living Set", image: living15 },
+  { image: decor1 },
+  { image: decor2 },
+  { image: decor3 },
+  { image: decor4 },
+  { image: decor5 },
+  { image: decor6 },
+  { image: decor7 },
+  { image: decor8 },
+  { image: decor9 },
+  { image: decor10 },
+  { image: decor11 },
+  { image: decor12 },
+  { image: decor13 },
+  { image: decor14 },
+  { image: decor15 },
 ];
 
-function HomeDecor() {
+function Living() {
   return (
     <div className="furniture-category-page">
       <Header />
 
       <section className="furniture-category-hero">
         <p className="furniture-category-label">FURNITURE COLLECTION</p>
-        <h1 className="furniture-category-title">Living</h1>
+
+        <h1 className="furniture-category-title">Decor</h1>
+
         <p className="furniture-category-description">
-          Explore elegant living room furniture for modern interior spaces.
+          Explore custom-made, elegant home decor for interior spaces.
         </p>
       </section>
 
       <section className="furniture-category-section">
         <div className="furniture-category-container">
           <div className="furniture-category-heading">
-            <p className="furniture-category-small-label">LIVING ROOM</p>
+            <p className="furniture-category-small-label">HOME DECOR</p>
+
             <h2 className="furniture-category-section-title">
-              Living Collection
+              Decor Collection
             </h2>
           </div>
 
@@ -62,10 +65,9 @@ function HomeDecor() {
               <div className="furniture-category-card" key={index}>
                 <img
                   src={item.image}
-                  alt={item.name}
+                  alt={`Living furniture ${index + 1}`}
                   className="furniture-category-image"
                 />
-                <p className="furniture-category-name">{item.name}</p>
               </div>
             ))}
           </div>
@@ -75,4 +77,4 @@ function HomeDecor() {
   );
 }
 
-export default HomeDecor;
+export default Living;

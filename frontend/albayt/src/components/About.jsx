@@ -1,8 +1,8 @@
 import aboutBuilding from "../assets/images/aboutbuilding.png";
 
 const stats = [
-  { num: "10", label: "PROJECTS" },
-  { num: "70+", label: "CLIENTS" },
+  { num: "60+", label: "PROJECTS" },
+  { num: "1000+", label: "CLIENTS" },
   { num: "46", label: "YEARS OF BUSINESS" },
 ];
 

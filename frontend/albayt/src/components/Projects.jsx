@@ -11,10 +11,67 @@ import hospitalImg from "../assets/images/project-hospital.png";
 import mallImg from "../assets/images/project-mall.png";
 import majlisImg from "../assets/images/project-majlis.png";
 
+import hamra1 from "../assets/images/hamra1.jpg";
+import hamra2 from "../assets/images/hamra2.jpg";
+import hamra3 from "../assets/images/hamra3.jpg";
+import hamra4 from "../assets/images/hamra4.jpg";
+
+import hospital1 from "../assets/images/hospital1.jpg";
+import hospital2 from "../assets/images/hospital2.jpg";
+import hospital3 from "../assets/images/hospital3.jpg";
+
+import spanish1 from "../assets/images/spanish1.jpg";
+import spanish2 from "../assets/images/spanish2.jpg";
+import spanish3 from "../assets/images/spanish3.jpg";
+import spanish4 from "../assets/images/spanish4.jpg";
+
+import res1 from "../assets/images/res1.png";
+import res2 from "../assets/images/res2.jpeg";
+import res3 from "../assets/images/res3.jpeg";
+import res4 from "../assets/images/res4.jpg";
+
+import n1 from "../assets/images/n1.jpg";
+import n2 from "../assets/images/n2.jpg";
+import n3 from "../assets/images/n3.jpg";
+import n4 from "../assets/images/n4.jpg";
+
+import villa1 from "../assets/images/villa1.jpg";
+import villa2 from "../assets/images/villa2.jpg";
+import villa3 from "../assets/images/villa3.jpg";
+import villa4 from "../assets/images/villa4.jpg";
+
 const filters = ["All", "Residential", "Commercial", "Hospitality"];
 
 const imageMap = {
-  villa: villaImg,
+  villa: hamra1,
+  hamra2: hamra2,
+  hamra3: hamra3,
+  hamra4: hamra4,
+
+  hospital1: hospital1,
+  hospital2: hospital2,
+  hospital3: hospital3,
+
+  spanish1: spanish1,
+  spanish2: spanish2,
+  spanish3: spanish3,
+  spanish4: spanish4,
+
+  res1: res1,
+  res2: res2,
+  res3: res3,
+  res4: res4,
+
+  n1: n1,
+  n2: n2,
+  n3: n3,
+  n4: n4,
+
+  villa1: villa1,
+  villa2: villa2,
+  villa3: villa3,
+  villa4: villa4,
+
   palacePool: palacePoolImg,
   palaceInterior: palaceInteriorImg,
   hospital: hospitalImg,

@@ -46,7 +46,8 @@ function Living() {
         <h1 className="furniture-category-title">Living</h1>
 
         <p className="furniture-category-description">
-          Explore elegant living room furniture for modern interior spaces.
+          Explore custom-made, elegant living room furniture for interior
+          spaces.
         </p>
       </section>
 

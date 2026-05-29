@@ -45,7 +45,7 @@ function Book3({ bookingData, setBookingData }) {
           {[
             "Modern",
             "Classic",
-            "Vintage",
+            "New Classic",
             "Minimal",
             "Arabesque",
             "Industrial",
@@ -69,7 +69,7 @@ function Book3({ bookingData, setBookingData }) {
                 </div>
               )}
 
-              {style === "Vintage" && (
+              {style === "New Classic" && (
                 <div className="book3-icon book3-vintage-icon">
                   {" "}
                   <img src={Vintage} alt="Vintage" className="book2-icon-img" />
