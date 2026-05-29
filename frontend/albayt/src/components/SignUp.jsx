@@ -81,6 +81,7 @@ function SignUp() {
               <label>Full Name *</label>
               <input
                 type="text"
+                placeholder="e.g. Ahmad Abdullah"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />

@@ -18,12 +18,15 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const [message, setMessage] = useState("");
+  const [loginAlert, setLoginAlert] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
-      setMessage("Please enter your email and password.");
+      const errorMessage = "Please enter your email and password.";
+      setMessage(errorMessage);
+      setLoginAlert(errorMessage);
       return;
     }
 
@@ -42,11 +45,20 @@ function Login() {
 
         navigate(from);
       } else {
-        setMessage(response.data.message);
+        const errorMessage =
+          response.data.message || "Login failed. Please try again.";
+
+        setMessage(errorMessage);
+        setLoginAlert(errorMessage);
       }
     } catch (error) {
       console.log("Login error:", error);
-      setMessage("Could not connect to PHP.");
+
+      const errorMessage =
+        "Could not connect to the login service. Please make sure PHP and MySQL are running.";
+
+      setMessage(errorMessage);
+      setLoginAlert(errorMessage);
     }
   };
 
@@ -104,8 +116,6 @@ function Login() {
               Forgot Password
             </Link>
 
-            {message && <p className="signup-message">{message}</p>}
-
             <button type="submit" className="login-submit">
               LOG IN
             </button>
@@ -132,6 +142,28 @@ function Login() {
           </div>
         </div>
       </section>
+
+      {loginAlert && (
+        <div className="cancel-modal-overlay">
+          <div className="cancel-modal">
+            <div className="cancel-modal-icon">!</div>
+
+            <h2>Login Notice</h2>
+
+            <p>{loginAlert}</p>
+
+            <div className="cancel-modal-actions">
+              <button
+                type="button"
+                className="cancel-modal-confirm"
+                onClick={() => setLoginAlert("")}
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
