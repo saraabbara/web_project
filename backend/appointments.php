@@ -1,4 +1,9 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require "vendor/autoload.php";
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -19,6 +24,58 @@ if ($conn->connect_error) {
 }
 
 $method = $_SERVER["REQUEST_METHOD"];
+
+function sendAppointmentEmail($appointment) {
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host = "smtp.gmail.com";
+        $mail->SMTPAuth = true;
+
+        $mail->Username = "albaytdecorinfo@gmail.com";
+        $mail->Password = "YOUR_GMAIL_APP_PASSWORD";
+
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        $mail->setFrom("albaytdecorinfo@gmail.com", "Albayt Decor Website");
+        $mail->addAddress("abbarahsara12@gmail.com");
+
+        $mail->isHTML(true);
+        $mail->Subject = "New Appointment Booked";
+
+        $mail->Body = "
+            <h2>New Appointment Booked</h2>
+
+            <p><strong>Name:</strong> {$appointment["full_name"]}</p>
+            <p><strong>Email:</strong> {$appointment["email"]}</p>
+            <p><strong>Phone:</strong> {$appointment["phone_number"]}</p>
+            <p><strong>Decor Plan:</strong> {$appointment["decor_plan"]}</p>
+            <p><strong>Style:</strong> {$appointment["style"]}</p>
+            <p><strong>Date:</strong> {$appointment["date"]}</p>
+            <p><strong>Time:</strong> {$appointment["time"]}</p>
+            <p><strong>Status:</strong> {$appointment["status"]}</p>
+        ";
+
+        $mail->AltBody =
+            "New Appointment Booked\n" .
+            "Name: " . $appointment["full_name"] . "\n" .
+            "Email: " . $appointment["email"] . "\n" .
+            "Phone: " . $appointment["phone_number"] . "\n" .
+            "Decor Plan: " . $appointment["decor_plan"] . "\n" .
+            "Style: " . $appointment["style"] . "\n" .
+            "Date: " . $appointment["date"] . "\n" .
+            "Time: " . $appointment["time"] . "\n" .
+            "Status: " . $appointment["status"];
+
+        $mail->send();
+
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
+}
 
 if ($method === "GET") {
     $userId = isset($_GET["user_id"]) ? intval($_GET["user_id"]) : 0;
@@ -70,6 +127,42 @@ if ($method === "GET") {
 
 if ($method === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
+
+    if (isset($data["action"]) && $data["action"] === "cancel") {
+        $appointmentId = isset($data["appointment_id"]) ? intval($data["appointment_id"]) : 0;
+        $userId = isset($data["user_id"]) ? intval($data["user_id"]) : 0;
+
+        if ($appointmentId === 0 || $userId === 0) {
+            echo json_encode([
+                "success" => false,
+                "message" => "Missing appointment ID or user ID"
+            ]);
+            exit;
+        }
+
+        $sql = "UPDATE appointments 
+                SET status = 'canceled'
+                WHERE appointment_id = ? AND user_id = ?";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $appointmentId, $userId);
+
+        if ($stmt->execute()) {
+            echo json_encode([
+                "success" => true,
+                "message" => "Appointment canceled successfully"
+            ]);
+        } else {
+            echo json_encode([
+                "success" => false,
+                "message" => "Appointment could not be canceled"
+            ]);
+        }
+
+        $stmt->close();
+        $conn->close();
+        exit;
+    }
 
     $userId = isset($data["user_id"]) ? intval($data["user_id"]) : 0;
     $fullName = isset($data["full_name"]) ? trim($data["full_name"]) : "";
@@ -130,25 +223,30 @@ if ($method === "POST") {
     );
 
     if ($stmt->execute()) {
+        $appointment = [
+            "appointment_id" => $stmt->insert_id,
+            "id" => $stmt->insert_id,
+            "user_id" => $userId,
+            "full_name" => $fullName,
+            "email" => $email,
+            "phone_number" => $phoneNumber,
+            "decor_plan" => $decorPlan,
+            "plan" => $decorPlan,
+            "style" => $style,
+            "floor_plan_upload" => $floorPlanUpload,
+            "date" => $date,
+            "time" => $time,
+            "status" => $status
+        ];
+
+        $emailSent = sendAppointmentEmail($appointment);
+
         echo json_encode([
             "success" => true,
             "message" => "Appointment saved successfully",
+            "email_sent" => $emailSent,
             "appointment_id" => $stmt->insert_id,
-            "appointment" => [
-                "appointment_id" => $stmt->insert_id,
-                "id" => $stmt->insert_id,
-                "user_id" => $userId,
-                "full_name" => $fullName,
-                "email" => $email,
-                "phone_number" => $phoneNumber,
-                "decor_plan" => $decorPlan,
-                "plan" => $decorPlan,
-                "style" => $style,
-                "floor_plan_upload" => $floorPlanUpload,
-                "date" => $date,
-                "time" => $time,
-                "status" => $status
-            ]
+            "appointment" => $appointment
         ]);
     } else {
         echo json_encode([

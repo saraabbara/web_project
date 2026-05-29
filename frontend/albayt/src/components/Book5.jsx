@@ -6,6 +6,8 @@ function Book5({ bookingData, setBookingData }) {
   const navigate = useNavigate();
   const dateInputRef = useRef(null);
 
+  const today = new Date().toISOString().split("T")[0];
+
   const handleDateChange = (e) => {
     setBookingData({
       ...bookingData,
@@ -33,6 +35,11 @@ function Book5({ bookingData, setBookingData }) {
   const handleConfirmBooking = () => {
     if (!bookingData.bookingDate) {
       alert("Please pick a date.");
+      return;
+    }
+
+    if (bookingData.bookingDate < today) {
+      alert("Please choose today or a future date.");
       return;
     }
 
@@ -95,6 +102,7 @@ function Book5({ bookingData, setBookingData }) {
             type="date"
             id="bookingDate"
             name="bookingDate"
+            min={today}
             value={bookingData.bookingDate || ""}
             onChange={handleDateChange}
           />

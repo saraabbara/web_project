@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
+import axios from "axios";
 
 import Cal2 from "../assets/images/cal2.png";
 import Location from "../assets/images/location.png";
@@ -12,20 +13,6 @@ function getSavedUser() {
   } catch (error) {
     localStorage.removeItem("user");
     return null;
-  }
-}
-
-function getSavedAppointments() {
-  try {
-    const savedAppointments = localStorage.getItem("appointments");
-    const parsedAppointments = savedAppointments
-      ? JSON.parse(savedAppointments)
-      : [];
-
-    return Array.isArray(parsedAppointments) ? parsedAppointments : [];
-  } catch (error) {
-    localStorage.setItem("appointments", JSON.stringify([]));
-    return [];
   }
 }
 
@@ -43,16 +30,21 @@ function Appointments() {
       return;
     }
 
-    const allAppointments = getSavedAppointments();
+    axios
+      .get(`http://localhost:8000/appointments.php?user_id=${user.user_id}`)
+      .then((response) => {
+        console.log("Appointments from database:", response.data);
 
-    const userAppointments = allAppointments
-      .filter(
-        (appointment) => String(appointment.user_id) === String(user.user_id),
-      )
-      .sort((a, b) => Number(b.id) - Number(a.id));
+        if (response.data.success) {
+          setAppointments(response.data.appointments);
+        }
 
-    setAppointments(userAppointments);
-    setLoading(false);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("Appointments error:", error);
+        setLoading(false);
+      });
   }, [user?.user_id]);
 
   if (!user) {
@@ -112,41 +104,42 @@ function Appointments() {
     setAppointmentToCancel(null);
   };
 
-  const confirmCancelAppointment = () => {
+  const confirmCancelAppointment = async () => {
     if (!appointmentToCancel) return;
 
-    const updatedAppointments = appointments.map((appointment) => {
-      if (String(appointment.id) === String(appointmentToCancel.id)) {
-        return {
-          ...appointment,
-          status: "canceled",
-        };
+    try {
+      const response = await axios.post("http://localhost:8000/appointments.php", {
+        action: "cancel",
+        appointment_id: appointmentToCancel.appointment_id,
+        user_id: user.user_id,
+      });
+
+      console.log("Cancel response:", response.data);
+
+      if (response.data.success) {
+        const updatedAppointments = appointments.map((appointment) => {
+          if (
+            String(appointment.appointment_id) ===
+            String(appointmentToCancel.appointment_id)
+          ) {
+            return {
+              ...appointment,
+              status: "canceled",
+            };
+          }
+
+          return appointment;
+        });
+
+        setAppointments(updatedAppointments);
+        setAppointmentToCancel(null);
+      } else {
+        alert(response.data.message || "Could not cancel appointment.");
       }
-
-      return appointment;
-    });
-
-    setAppointments(updatedAppointments);
-
-    const allAppointments = getSavedAppointments();
-
-    const updatedAllAppointments = allAppointments.map((appointment) => {
-      if (String(appointment.id) === String(appointmentToCancel.id)) {
-        return {
-          ...appointment,
-          status: "canceled",
-        };
-      }
-
-      return appointment;
-    });
-
-    localStorage.setItem(
-      "appointments",
-      JSON.stringify(updatedAllAppointments),
-    );
-
-    setAppointmentToCancel(null);
+    } catch (error) {
+      console.log("Cancel error:", error);
+      alert("Could not connect to PHP.");
+    }
   };
 
   const filteredAppointments = appointments.filter((appointment) => {
@@ -169,7 +162,9 @@ function Appointments() {
     <main className="appointments-page book-page">
       <section className="projects-hero">
         <p className="projects-label">MY APPOINTMENTS</p>
+
         <h1 className="projects-title">Your Consultations</h1>
+
         <p className="projects-description">
           Review status, dates and personal notes from your dedicated designer.
         </p>
@@ -216,11 +211,17 @@ function Appointments() {
                 const status = getStatus(appointment.status);
 
                 return (
-                  <article className="appointment-card" key={appointment.id}>
+                  <article
+                    className="appointment-card"
+                    key={appointment.appointment_id}
+                  >
                     <div className="appointment-date-panel">
                       <p className="appointment-month">{dateParts.month}</p>
+
                       <h2 className="appointment-day">{dateParts.day}</h2>
+
                       <p className="appointment-year">{dateParts.year}</p>
+
                       <p className="appointment-time">
                         {appointment.time || "No time"}
                       </p>
@@ -230,7 +231,9 @@ function Appointments() {
                       <div className="appointment-top-row">
                         <div>
                           <h2 className="appointment-title">
-                            {appointment.decor_plan || "Consultation"}
+                            {appointment.decor_plan ||
+                              appointment.plan ||
+                              "Consultation"}
                           </h2>
 
                           <p className="appointment-subtitle">
@@ -320,7 +323,9 @@ function Appointments() {
             <p>
               Are you sure you want to cancel your{" "}
               <strong>
-                {appointmentToCancel.decor_plan || "consultation"}
+                {appointmentToCancel.decor_plan ||
+                  appointmentToCancel.plan ||
+                  "consultation"}
               </strong>{" "}
               appointment?
             </p>

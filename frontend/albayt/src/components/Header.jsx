@@ -73,7 +73,7 @@ function Header() {
         {user ? (
           <div className="profile-area">
             <Link to="/appointments" className="profile-icon">
-              {user.email ? user.email.charAt(0).toUpperCase() : "U"}
+              {user.fullName.charAt(0).toUpperCase()}
             </Link>
 
             <button className="logout-btn" onClick={handleLogout}>

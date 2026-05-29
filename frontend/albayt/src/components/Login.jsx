@@ -112,10 +112,6 @@ function Login() {
               </div>
             </div>
 
-            <Link to="/forgot-password" className="forgot-link">
-              Forgot Password
-            </Link>
-
             <button type="submit" className="login-submit">
               LOG IN
             </button>
