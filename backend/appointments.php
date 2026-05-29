@@ -34,7 +34,7 @@ function sendAppointmentEmail($appointment) {
         $mail->SMTPAuth = true;
 
         $mail->Username = "albaytdecorinfo@gmail.com";
-        $mail->Password = "YOUR_GMAIL_APP_PASSWORD";
+        $mail->Password = "vdeg hngq gavt qmzi";
 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;

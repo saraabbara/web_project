@@ -35,7 +35,7 @@ function sendContactEmail($contact) {
         $mail->Username = "albaytdecorinfo@gmail.com";
 
         // Use Gmail App Password, not normal Gmail password
-        $mail->Password = "aoee jaae kbad bvdb";
+        $mail->Password = "vdeg hngq gavt qmzi";
 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;

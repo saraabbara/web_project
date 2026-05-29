@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
+// we used Axios to send HTTP requests from React to PHP
 import axios from "axios";
 
 import Cal2 from "../assets/images/cal2.png";
 import Location from "../assets/images/location.png";
 import Apt from "../assets/images/apt.png";
 
+// Gets the logged-in user from localStorage
+// we used localStorage because without it, React would forget the user when the page is refreshed
 function getSavedUser() {
   try {
     const savedUser = localStorage.getItem("user");
+    
+    // If a user exists, we convert it from JSON text back to an object
     return savedUser ? JSON.parse(savedUser) : null;
   } catch (error) {
     localStorage.removeItem("user");
@@ -17,24 +22,34 @@ function getSavedUser() {
 }
 
 function Appointments() {
+  // we added filter to allow the user to see the active vs cancelled appointments, so this stores which filter is currently selected
   const [filter, setFilter] = useState("all");
+  
+  // stores appointments loaded from the database
   const [appointments, setAppointments] = useState([]);
+  // tracks whether appointments are still loading
   const [loading, setLoading] = useState(true);
+  // to know/store which the appointment is selected for cancellation
   const [appointmentToCancel, setAppointmentToCancel] = useState(null);
 
+  // Gets the logged-in user
   const user = getSavedUser();
 
   useEffect(() => {
+    //if there is no logged-in user stop loading
     if (!user) {
       setLoading(false);
       return;
     }
 
+    // axios to send a GET request to php to get this user's appointments from MySQL
     axios
       .get(`http://localhost:8000/appointments.php?user_id=${user.user_id}`)
       .then((response) => {
+        //for testing
         console.log("Appointments from database:", response.data);
 
+        //used the setAppointment to store the appointment booked
         if (response.data.success) {
           setAppointments(response.data.appointments);
         }
@@ -42,16 +57,20 @@ function Appointments() {
         setLoading(false);
       })
       .catch((error) => {
+        //for testing in case of failure in connecting
         console.log("Appointments error:", error);
         setLoading(false);
       });
   }, [user?.user_id]);
 
+  // if the user is not logged in, we redirect them to the login page so they can book the appointments
   if (!user) {
     return <Navigate to="/login" />;
   }
 
+  //we used Date, so we need to convert the date value from the database into display parts
   const getDateParts = (dateValue) => {
+    //in case something is missing
     if (!dateValue) {
       return {
         month: "",
@@ -63,13 +82,16 @@ function Appointments() {
 
     let date;
 
+    // ff the date is in YYYY-MM-DD format, create the date manually
     if (/^\d{4}-\d{2}-\d{2}$/.test(dateValue)) {
       const [year, month, day] = dateValue.split("-");
       date = new Date(Number(year), Number(month) - 1, Number(day));
     } else {
+      //in case the manual didnt work, try doing it directly from javascript
       date = new Date(dateValue);
     }
 
+    //in case both failed
     if (Number.isNaN(date.getTime())) {
       return {
         month: "",
@@ -79,6 +101,7 @@ function Appointments() {
       };
     }
 
+    //this to extract the date in formats used by the appointment card
     return {
       month: date.toLocaleString("en-US", { month: "short" }).toUpperCase(),
       day: date.getDate(),
@@ -91,10 +114,6 @@ function Appointments() {
     };
   };
 
-  const getStatus = (status) => {
-    if (status === "cancelled") return "canceled";
-    return status || "confirmed";
-  };
 
   const openCancelModal = (appointment) => {
     setAppointmentToCancel(appointment);
@@ -143,7 +162,7 @@ function Appointments() {
   };
 
   const filteredAppointments = appointments.filter((appointment) => {
-    const status = getStatus(appointment.status);
+    const status = appointment.status || "confirmed";
 
     if (filter === "all") return true;
     if (filter === "active") return status === "confirmed";
@@ -208,7 +227,7 @@ function Appointments() {
             <div className="appointments-list">
               {filteredAppointments.map((appointment) => {
                 const dateParts = getDateParts(appointment.date);
-                const status = getStatus(appointment.status);
+                const status = appointment.status || "confirmed";
 
                 return (
                   <article
