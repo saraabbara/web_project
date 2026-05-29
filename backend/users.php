@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     exit;
 }
 
-$conn = new mysqli("127.0.0.1", "root", "", "albaytdecor");
+$conn = new mysqli("localhost", "root", "", "albaytdecor", 3306);
 
 if ($conn->connect_error) {
     echo json_encode([
