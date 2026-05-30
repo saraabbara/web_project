@@ -15,6 +15,7 @@ const exploreLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
+// Stores the contact information in one array where each item has an icon and text
 const contactInfo = [
   {
     image: locationImg,
@@ -30,6 +31,8 @@ const contactInfo = [
   },
 ];
 
+// we store the social media links in one array it makes it easier to display the social icons using map
+//these are the social media accounts for the company
 const socialLinks = [
   {
     image: instagramImg,
@@ -48,6 +51,7 @@ const socialLinks = [
   },
 ];
 
+// footer component shown at the bottom of the website
 function Footer() {
   return (
     <footer className="footer">
@@ -114,6 +118,7 @@ function Footer() {
           </div>
         </div>
 
+        {/* Copyright text */}
         <div className="footer-bottom">
           <p>&copy; 2026 Madayen & Albayt Decor. All rights reserved.</p>
         </div>

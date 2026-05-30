@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import heroBackground from "../assets/images/heroBackground.png";
+import scrollArrow from "../assets/images/scroll-arrow.svg";
 
 function Hero() {
   return (
@@ -23,29 +24,26 @@ function Hero() {
         </p>
 
         <div className="hero-buttons">
+          {/* Scrolls to the About section on the same page */}
           <a href="#about-section" className="main-btn">
             EXPLORE MORE
           </a>
-
+          {/* Moves the user to the booking page */}
           <Link to="/book" className="main-btn light-btn">
             BOOK A CONSULTATION
           </Link>
         </div>
 
+        {/* just scroll down arrow for design purposes */}
         <div className="scroll-indicator">
           <div className="scroll-text">SCROLL</div>
 
           <div className="scroll-arrow">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#FFFEFE"
-              strokeWidth="2"
-            >
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
+            <img
+              src={scrollArrow}
+              alt="Scroll down"
+              className="scroll-arrow-img"
+            />
           </div>
         </div>
       </div>

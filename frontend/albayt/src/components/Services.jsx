@@ -6,6 +6,7 @@ import maintenanceImg from "../assets/images/maintenance.png";
 import furnitureImg from "../assets/images/furniture.png";
 import workshopImg from "../assets/images/workshop.png";
 
+//we used one array to store the services with the image, title and description so its easier to loop through them using map
 const services = [
   {
     image: architectureImg,
@@ -39,6 +40,7 @@ const services = [
   },
 ];
 
+// Reusable card component for one service, it receives image, title, and desc as props
 function ServiceCard({ image, title, desc }) {
   return (
     <div className="service-card">
@@ -71,6 +73,7 @@ function Services() {
         </div>
 
         <div className="services-grid">
+          {/* Loops through services and creates one ServiceCard for each service */}
           {services.map((service, i) => (
             <ServiceCard
               key={i}
@@ -81,6 +84,7 @@ function Services() {
           ))}
         </div>
 
+        {/* Last service card placed separately in the center for design purposes */}
         <div className="services-last-wrapper">
           <div className="service-card service-card-center">
             <div className="service-icon-circle">

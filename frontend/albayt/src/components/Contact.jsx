@@ -11,8 +11,10 @@ import linkedinImg from "../assets/images/linkedinBlue.png";
 import arrowImg from "../assets/images/arrow.png";
 
 import { useState } from "react";
+// Imports Axios to send the contact form data from React to PHP
 import axios from "axios";
 
+//we store the information in array to make it easier to loop through them using Map
 const showrooms = [
   {
     title: "Jeddah Showroom",
@@ -28,6 +30,7 @@ const showrooms = [
   },
 ];
 
+//the links are the social media accounts for the company
 const socialLinks = [
   {
     image: instagramImg,
@@ -47,6 +50,7 @@ const socialLinks = [
 ];
 
 function Contact() {
+  // Stores the form inputs
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,11 +58,14 @@ function Contact() {
     message: "",
   });
 
+  // Stores the success or error message shown under the form
   const [formMessage, setFormMessage] = useState("");
 
   const handleChange = (e) => {
+    // Gets the name and value from the field that changed
     const { name, value } = e.target;
 
+    // Keeps the old form values and updates only the changed field
     setFormData({
       ...formData,
       [name]: value,
@@ -68,6 +75,7 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    //to check that all fields arent empty before sending to php
     if (
       !formData.name ||
       !formData.email ||
@@ -79,11 +87,13 @@ function Contact() {
     }
 
     try {
+      // Sends the form data to contact.php using POST
       const response = await axios.post(
         "http://localhost:8000/contact.php",
         formData,
       );
 
+      // If PHP saved the message successfully, show success and clear the form
       if (response.data.success) {
         setFormMessage("Message sent successfully.");
 
@@ -94,6 +104,7 @@ function Contact() {
           message: "",
         });
       } else {
+        // Shows the error message returned from PHP or hardcoded message showing the error
         setFormMessage(response.data.message || "Message could not be sent.");
       }
     } catch (error) {
@@ -167,8 +178,10 @@ function Contact() {
               ></textarea>
             </div>
 
+            {/* Shows success or error message after submitting */}
             {formMessage && <p className="signup-message">{formMessage}</p>}
 
+            {/* Submit button */}
             <button type="submit" className="main-btn contact-send-btn">
               SEND MESSAGE
             </button>

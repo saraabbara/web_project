@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import House from "../assets/images/house.png";
 import Room from "../assets/images/room.png";
 
+// Book2 is the second step of the booking form, the logic and design is similar to book1
 function Book2({ bookingData, setBookingData }) {
   const navigate = useNavigate();
 
+  // Saves the selected plan in bookingData
   const selectPlan = (plan) => {
     setBookingData({
       ...bookingData,
@@ -25,12 +27,14 @@ function Book2({ bookingData, setBookingData }) {
         </p>
       </section>
 
+      {/* Booking progress section */}
       <section className="book-progress-section">
         <div className="book-progress-text">
           <span className="book-progress-step">STEP 2 OF 5</span>
           <span className="book-progress-title">SCOPE</span>
         </div>
 
+        {/* Progress bar showing the user is on step 2 */}
         <div className="book-progress-bar">
           <div className="book-progress-fill book2-progress-fill"></div>
         </div>
@@ -40,6 +44,7 @@ function Book2({ bookingData, setBookingData }) {
         <h2 className="book-card-title">Choose your plan</h2>
 
         <div className="book2-plan-wrapper">
+          {/* Full House option */}
           <button
             type="button"
             className={`book2-plan-card ${
@@ -58,6 +63,7 @@ function Book2({ bookingData, setBookingData }) {
             <p>End-to-end design for the entire residence.</p>
           </button>
 
+          {/* By Room option */}
           <button
             type="button"
             className={`book2-plan-card ${
@@ -76,6 +82,7 @@ function Book2({ bookingData, setBookingData }) {
         </div>
 
         <div className="book-buttons book2-buttons">
+          {/* Goes back to the first booking step */}
           <button
             type="button"
             className="book-back-btn"
@@ -84,6 +91,7 @@ function Book2({ bookingData, setBookingData }) {
             BACK
           </button>
 
+          {/* to check if the user selected a plan before going to Book3 */}
           <button
             type="button"
             className="main-btn book-continue-btn"

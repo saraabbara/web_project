@@ -1,6 +1,8 @@
 import projectIcon from "../assets/images/project-icon.png";
 import { useEffect, useState } from "react";
+// useParams gets the project id from the URL
 import { Link, useParams } from "react-router-dom";
+// Imports Axios to get project data from PHP
 import axios from "axios";
 
 import villaImg from "../assets/images/project-villa.png";
@@ -39,6 +41,7 @@ import villa2 from "../assets/images/villa2.jpg";
 import villa3 from "../assets/images/villa3.jpg";
 import villa4 from "../assets/images/villa4.jpg";
 
+//same logic as projects.jsx
 const imageMap = {
   villa: hamra1,
   hamra2: hamra2,
@@ -76,24 +79,31 @@ const imageMap = {
   majlis: majlisImg,
 };
 
+//we did one component to avoid duplication for each single project
 function ProjectDetails() {
+  // Gets the project id from the url like: /project-details/villa
   const { id } = useParams();
 
+  // Stores the selected project after it is loaded from PHP
   const [project, setProject] = useState(null);
   const [activeImage, setActiveImage] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Sends a GET request to PHP
     axios
       .get("http://localhost:8000/projects.php")
       .then((response) => {
+        //for testing
         console.log("Project details from PHP:", response.data);
 
+        // If php returns projects successfully, find the one that matches the URL id
         if (response.data.success) {
           const selectedProject = response.data.projects.find(
             (item) => item.id === id,
           );
 
+          //we save the selected project, if no selected save null
           setProject(selectedProject || null);
         }
 
@@ -109,6 +119,7 @@ function ProjectDetails() {
     return <h2 style={{ padding: "160px 40px" }}>Loading project...</h2>;
   }
 
+  // Shows a not found message if the project id does not match any project
   if (!project) {
     return (
       <main className="project-details-page">
@@ -123,12 +134,14 @@ function ProjectDetails() {
     );
   }
 
+  // Moves to the next image in the gallery (to make it interactive for the user)
   function nextImage() {
     setActiveImage((previous) =>
       previous === project.gallery.length - 1 ? 0 : previous + 1,
     );
   }
 
+  // Moves to the previous image in the gallery
   function previousImage() {
     setActiveImage((previous) =>
       previous === 0 ? project.gallery.length - 1 : previous - 1,
@@ -175,6 +188,7 @@ function ProjectDetails() {
           </div>
         </div>
 
+        {/* Image slider */}
         <div className="details-slider">
           <img
             src={imageMap[project.gallery[activeImage]]}
@@ -182,6 +196,7 @@ function ProjectDetails() {
             className="details-slider-image"
           />
 
+          {/* Previous image button */}
           <button
             type="button"
             className="slider-arrow slider-left"
@@ -190,6 +205,7 @@ function ProjectDetails() {
             ‹
           </button>
 
+          {/* Next image button */}
           <button
             type="button"
             className="slider-arrow slider-right"
@@ -199,6 +215,8 @@ function ProjectDetails() {
           </button>
         </div>
 
+
+        {/* Gallery thumbnails */}
         <div className="details-thumbnails">
           {project.gallery.map((image, i) => (
             <button

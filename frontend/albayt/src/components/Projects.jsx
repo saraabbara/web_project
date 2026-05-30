@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+// Imports Axios to get project data from PHP
 import axios from "axios";
 
+// Imports the arrow icon used on each project card
 import arrowImg from "../assets/images/arrow.png";
 
 import villaImg from "../assets/images/project-villa.png";
@@ -40,8 +43,10 @@ import villa2 from "../assets/images/villa2.jpg";
 import villa3 from "../assets/images/villa3.jpg";
 import villa4 from "../assets/images/villa4.jpg";
 
+// Stores the filter buttons shown above the project gallery
 const filters = ["All", "Residential", "Commercial", "Hospitality"];
 
+// Matches image names from PHP with the imported React images then php sends image keys as text, and React uses this object to find the real image file
 const imageMap = {
   villa: hamra1,
   hamra2: hamra2,
@@ -79,29 +84,40 @@ const imageMap = {
   majlis: majlisImg,
 };
 
+// Projects component displays all projects and lets the user filter them
 function Projects() {
+  // Stores the selected filter
   const [activeFilter, setActiveFilter] = useState("All");
+
+  // Stores projects loaded from PHP
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Sends a GET request to php
     axios
       .get("http://localhost:8000/projects.php")
       .then((response) => {
+        // for testing
         console.log("Projects from PHP:", response.data);
 
+        // If success
         if (response.data.success) {
           setProjects(response.data.projects);
         }
 
+        // Stops the loading message
         setLoading(false);
       })
       .catch((error) => {
+        // Shows an error if React could not connect to PHP
         console.log("Projects error:", error);
+
         setLoading(false);
       });
   }, []);
 
+  // Filters projects based on the selected category
   const filteredProjects =
     activeFilter === "All"
       ? projects
@@ -123,8 +139,10 @@ function Projects() {
         </p>
       </section>
 
+      {/* Filter buttons section */}
       <section className="projects-filter-bar">
         <div className="projects-filters">
+          {/* Loops through the filters array and creates one button for each filter */}
           {filters.map((filter, i) => (
             <button
               key={i}
@@ -142,14 +160,17 @@ function Projects() {
         </div>
       </section>
 
+      {/* Project gallery section */}
       <section className="projects-gallery-section">
         <div className="projects-gallery">
+          {/* Loops through the filtered projects and creates one clickable project card for each project */}
           {filteredProjects.map((project) => (
             <Link
               key={project.id}
               to={`/project-details/${project.id}`}
               className={`project-card project-card-${project.layout}`}
             >
+              {/* Project image */}
               <img
                 src={imageMap[project.image]}
                 alt={project.title}
@@ -167,6 +188,7 @@ function Projects() {
                   <h2 className="project-card-title">{project.title}</h2>
                 </div>
 
+                {/* Arrow icon for opening the project */}
                 <span className="project-arrow">
                   <img
                     src={arrowImg}

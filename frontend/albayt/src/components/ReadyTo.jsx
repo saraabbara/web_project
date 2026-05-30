@@ -10,7 +10,7 @@ function ReadyTo() {
         <br />
         something timeless?
       </h2>
-
+      {/* Button that takes the user to the booking page */}
       <Link to="/book" className="main-btn ready-btn">
         BOOK A CONSULTATION
       </Link>

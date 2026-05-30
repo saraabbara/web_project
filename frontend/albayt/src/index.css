@@ -2090,9 +2090,7 @@ html {
   margin-top: 8px;
 }
 
-/* =========================
-   Shared Book Pages
-   ========================= */
+/* Shared Book Pages */
 
 .book-page {
   background-color: #fffaf0;
@@ -2264,9 +2262,7 @@ html {
   letter-spacing: 2.5px;
 }
 
-/* =========================
-   Book1 Specific
-   ========================= */
+/* Book1 Specific*/
 
 .book1-card {
   margin-top: 60px;
@@ -2324,9 +2320,7 @@ html {
   margin-top: 60px;
 }
 
-/* =========================
-   Book2 Specific
-   ========================= */
+/* Book2 Specific */
 
 .book2-card {
   margin-top: 60px;
@@ -2451,9 +2445,7 @@ html {
   margin-top: 60px;
 }
 
-/* =========================
-   Book3 Specific
-   ========================= */
+/* Book3 Specific */
 
 .book3-card {
   margin-top: 60px;
@@ -2606,9 +2598,7 @@ html {
   margin-top: 60px;
 }
 
-/* =========================
-   Book4 Specific
-   ========================= */
+/* Book4 Specific */
 
 .book4-card {
   margin-top: 60px;
@@ -2699,9 +2689,7 @@ html {
   margin-top: 60px;
 }
 
-/* =========================
-   Book5 Specific
-   ========================= */
+/* Book5 Specific*/
 
 .book5-card {
   margin-top: 60px;
@@ -2888,9 +2876,7 @@ html {
   letter-spacing: 2.5px;
 }
 
-/* =========================
-   Book6 Specific
-   ========================= */
+/* Book6 Specific */
 
 .book6-card {
   margin-top: 60px;
@@ -2994,9 +2980,7 @@ html {
   margin-top: 70px;
 }
 
-/* =========================
-   Responsive Book Pages
-   ========================= */
+/* Book Pages */
 
 @media (max-width: 900px) {
   .book-hero {
@@ -3105,9 +3089,7 @@ html {
   }
 }
 
-/* =========================
-   Appointments Page
-   ========================= */
+/* Appointments Page */
 
 .appointments-page {
   background-color: #fcfcfc;
@@ -3622,10 +3604,8 @@ html {
     width: 100%;
   }
 }
-/* =========================
-   Shared Furniture Category Pages
-   Used by Living, Bedroom, HomeDecor
-   ========================= */
+
+/* Shared Furniture Category Pages Used by Living, Bedroom, HomeDecor */
 
 .furniture-category-page {
   background-color: #fffaf0;
@@ -3866,4 +3846,10 @@ html {
 
 .signup-link:hover {
   color: #e1c083;
+}
+
+.scroll-arrow-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }

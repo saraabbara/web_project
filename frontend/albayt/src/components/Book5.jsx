@@ -2,19 +2,25 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Cal from "../assets/images/cal.png";
 
+// Book5 is the final step of the booking form before confirmation, the logic and design is similar to book1
 function Book5({ bookingData, setBookingData }) {
   const navigate = useNavigate();
+  // Creates a reference to the date input
+  // This lets us open the date picker when the custom date box is clicked
   const dateInputRef = useRef(null);
 
+  // Gets today's date in YYYY-MM-DD format, we used this to stop users from selecting a past date
   const today = new Date().toISOString().split("T")[0];
 
   const handleDateChange = (e) => {
+    // Saves the selected date in bookingData
     setBookingData({
       ...bookingData,
       bookingDate: e.target.value,
     });
   };
 
+  // Opens the browser date picker
   const openDatePicker = () => {
     if (dateInputRef.current) {
       if (dateInputRef.current.showPicker) {
@@ -25,6 +31,7 @@ function Book5({ bookingData, setBookingData }) {
     }
   };
 
+  // Saves the selected appointment time in bookingData, we only used custom timing based on the client requests
   const selectTime = (time) => {
     setBookingData({
       ...bookingData,
@@ -33,25 +40,31 @@ function Book5({ bookingData, setBookingData }) {
   };
 
   const handleConfirmBooking = () => {
+    // Makes sure the user selected a date
     if (!bookingData.bookingDate) {
       alert("Please pick a date.");
       return;
     }
 
+    // Makes sure the selected date is not in the past
     if (bookingData.bookingDate < today) {
       alert("Please choose today or a future date.");
       return;
     }
 
+    // Makes sure the user selected a time
     if (!bookingData.bookingTime) {
       alert("Please pick a time.");
       return;
     }
 
+    //for testing
     console.log("Final booking data:", bookingData);
+    //if all okay, then navigate to book6
     navigate("/book6");
   };
 
+  //the times the client requested adding
   const times = [
     "9:00 AM",
     "10:30 AM",
@@ -93,6 +106,7 @@ function Book5({ bookingData, setBookingData }) {
           role="button"
           tabIndex="0"
         >
+          {/* Shows the selected date or placeholder text */}
           <span>
             {bookingData.bookingDate ? bookingData.bookingDate : "Pick a date"}
           </span>
@@ -134,6 +148,7 @@ function Book5({ bookingData, setBookingData }) {
         <div className="book5-divider"></div>
 
         <div className="book-buttons book5-buttons">
+          {/* Goes back to the floor plan step */}
           <button
             type="button"
             className="book-back-btn"
@@ -141,7 +156,7 @@ function Book5({ bookingData, setBookingData }) {
           >
             BACK
           </button>
-
+          {/* Validates date and time before going to Book6 */}
           <button
             type="button"
             className="main-btn book5-confirm-btn"

@@ -2,6 +2,7 @@ import stepOneImg from "../assets/images/step-one.png";
 import stepTwoImg from "../assets/images/step-two.png";
 import stepThreeImg from "../assets/images/step-three.png";
 
+//we store the steps in one array to make it easier to display using map
 const steps = [
   {
     num: "1.",
@@ -30,6 +31,7 @@ function HowItWorks() {
         </div>
 
         <div className="how-grid">
+          {/* Loops through the steps array and creates one card for each step */}
           {steps.map((step, i) => (
             <div className="how-step" key={i}>
               <div className="how-image-box">

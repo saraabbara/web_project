@@ -1,12 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+// Book4 is the fourth step of the booking form, the logic and design is similar to book1
+// in this we made the floor plan to be optional as the client requested
 function Book4({ bookingData, setBookingData }) {
   const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
 
+    // If the user selected a file, save it in bookingData
     if (file) {
       setBookingData({
         ...bookingData,
@@ -33,7 +36,7 @@ function Book4({ bookingData, setBookingData }) {
           <span className="book-progress-step">STEP 4 OF 5</span>
           <span className="book-progress-title">FLOOR PLAN</span>
         </div>
-
+        {/* Progress bar showing the user is on step 4 */}
         <div className="book-progress-bar">
           <div className="book-progress-fill book4-progress-fill"></div>
         </div>
@@ -45,6 +48,7 @@ function Book4({ bookingData, setBookingData }) {
           <p>PDF, JPG or PNG - up to 10MB</p>
         </div>
 
+        {/* When the user clicks this box, it opens the hidden file input */}
         <label htmlFor="floorPlanUpload" className="book4-upload-box">
           <input
             type="file"
@@ -56,6 +60,7 @@ function Book4({ bookingData, setBookingData }) {
 
           <div className="book4-upload-icon">↑</div>
 
+          {/* Shows the file name if a file was selected; Otherwise, shows the default upload message */}
           <p>
             {bookingData.floorPlanFileName
               ? bookingData.floorPlanFileName
@@ -64,6 +69,7 @@ function Book4({ bookingData, setBookingData }) {
         </label>
 
         <div className="book-buttons book4-buttons">
+          {/* Goes back to the third booking step */}
           <button
             type="button"
             className="book-back-btn"
@@ -72,6 +78,7 @@ function Book4({ bookingData, setBookingData }) {
             BACK
           </button>
 
+          {/* No validation is needed because floor plan upload is optional */}
           <button
             type="button"
             className="main-btn book-continue-btn"

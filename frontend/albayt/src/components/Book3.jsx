@@ -5,9 +5,11 @@ import Vintage from "../assets/images/vintage.png";
 import Industrial from "../assets/images/industrial.png";
 import Arab from "../assets/images/arab.png";
 
+// Book3 is the third step of the booking form, the logic and design is similar to book1
 function Book3({ bookingData, setBookingData }) {
   const navigate = useNavigate();
 
+  // Saves the selected style in bookingData, we did the styles as the client requested
   const selectStyle = (style) => {
     setBookingData({
       ...bookingData,
@@ -33,6 +35,7 @@ function Book3({ bookingData, setBookingData }) {
           <span className="book-progress-title">STYLE</span>
         </div>
 
+        {/* Progress bar showing the user is on step 3 */}
         <div className="book-progress-bar">
           <div className="book-progress-fill book3-progress-fill"></div>
         </div>
@@ -42,6 +45,7 @@ function Book3({ bookingData, setBookingData }) {
         <h2 className="book-card-title">Which style are you looking for?</h2>
 
         <div className="book3-style-grid">
+          {/* to create one button for each style option */}
           {[
             "Modern",
             "Classic",
@@ -111,7 +115,8 @@ function Book3({ bookingData, setBookingData }) {
           >
             BACK
           </button>
-
+          
+          {/* Checks if the user selected a style before going to Book4 */}
           <button
             type="button"
             className="main-btn book-continue-btn"
@@ -120,7 +125,7 @@ function Book3({ bookingData, setBookingData }) {
                 alert("Please choose a style.");
                 return;
               }
-
+              // if okay go book4 (the fourth step)
               navigate("/book4");
             }}
           >

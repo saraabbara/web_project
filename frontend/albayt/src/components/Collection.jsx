@@ -4,6 +4,7 @@ import homeDecorImg from "../assets/images/homedecor.png";
 import livingImg from "../assets/images/living.png";
 import bedroomImg from "../assets/images/bedroom.png";
 
+// Stores the furniture categories in one array; its easier to display the cards using map instead of writing each card manually
 const furniture = [
   {
     label: "Home décor",
@@ -32,6 +33,7 @@ function Collection() {
         </div>
 
         <div className="furniture-grid">
+          {/* Loops through the furniture array and creates one clickable card for each category */}
           {furniture.map((f, i) => (
             <Link to={f.path} key={i} className="furniture-item">
               <div className="furniture-card">

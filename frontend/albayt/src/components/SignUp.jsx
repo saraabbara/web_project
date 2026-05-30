@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+// Imports Axios to send the signup request from React to PHP
 import axios from "axios";
 
+//same images and logic as login page
 import loginImg from "../assets/images/login-image.png";
 import eyeImg from "../assets/images/eye.png";
 import eyeOffImg from "../assets/images/eye-off.png";
 
+//same logic as login.jsx
 function SignUp() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // If there is no saved page, send them to login after signup
   const from = location.state?.from || "/login";
 
   let [showPassword, setShowPassword] = useState(false);
@@ -24,27 +28,32 @@ function SignUp() {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-
+    // Checks that all fields are filled
     if (!fullName || !email || !password || !confirmPassword) {
       setMessage("Please fill in all fields.");
       return;
     }
 
+    // Checks that password and confirm password match
     if (password !== confirmPassword) {
       setMessage("Passwords do not match.");
       return;
     }
 
     try {
+      // Sends the signup data to users.php using POST
       const response = await axios.post("http://localhost:8000/users.php", {
         fullName: fullName,
         email: email,
         password: password,
       });
 
+      //for testing
       console.log("Signup response:", response.data);
 
+      // If PHP successfully created the account
       if (response.data.success) {
+        // Shows the success message returned from PHP and clear the form fields
         setMessage(response.data.message);
 
         setFullName("");
@@ -52,17 +61,21 @@ function SignUp() {
         setPassword("");
         setConfirmPassword("");
 
+        //now login after signup
         navigate("/login", { state: { from } });
       } else {
         setMessage(response.data.message);
       }
     } catch (error) {
+      //for testing
       console.log("Signup error:", error);
+      // Shows a message if React could not connect to PHP
       setMessage("Could not connect to PHP.");
     }
   };
 
   return (
+    //the css is similar to login.jsx
     <main className="login-page">
       <section className="login-card">
         <div className="login-left signup-left">
@@ -76,6 +89,7 @@ function SignUp() {
             Join us and unlock a curated world of bespoke design.
           </p>
 
+          {/* Signup form */}
           <form className="login-form" onSubmit={handleSignUp}>
             <div className="login-group">
               <label>Full Name *</label>
@@ -149,12 +163,15 @@ function SignUp() {
               </div>
             </div>
 
+            {/* Shows signup success or error message */}
             {message && <p className="signup-message">{message}</p>}
 
+            {/* Submit button */}
             <button type="submit" className="login-submit">
               SIGN UP
             </button>
 
+            {/* Link to login page if they have an account*/}
             <p className="signup-text">
               Already have an account?{" "}
               <Link to="/login" state={{ from }} className="signup-link">
