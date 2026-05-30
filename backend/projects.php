@@ -1,9 +1,13 @@
 <?php
+// allows React to request data from this PHP file
 header("Access-Control-Allow-Origin: *");
+// to tell the browser that the response will be JSON
 header("Content-Type: application/json");
 
+// Stores all project information in one array; each project has text data and image names that React will match using imageMap function
 $projects = [
     [
+    // Unique id used in the URL for the project details page    
         "id" => "private-villa",
         "title" => "Hamra Palace",
         "category" => "Residential",
@@ -76,6 +80,7 @@ The space combines elegant finishes, comfortable seating, and a sophisticated at
     ]
 ];
 
+// so even though the file is PHP, this line turns the PHP array into JSON
 echo json_encode([
     "success" => true,
     "projects" => $projects
