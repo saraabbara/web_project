@@ -1,4 +1,5 @@
 <?php
+// downloaded the package phpmailer which automatically downloaded the vendor folder, composer.json and composer.lock
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
