@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
 }
 
 //connect to database
-$conn = new mysqli("127.0.0.1", "root", "", "albaytdecor", 3306);
+$conn = new mysqli("localhost", "root", "", "albaytdecor", 3306);
 
 //in case of an error in database
 if ($conn->connect_error) {

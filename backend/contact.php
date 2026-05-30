@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
 }
 
 //connect to database
-$conn = new mysqli("127.0.0.1", "root", "", "albaytdecor", 3306);
+$conn = new mysqli("localhost", "root", "", "albaytdecor", 3306);
 
 //in case of an error in database
 if ($conn->connect_error) {
@@ -32,7 +32,7 @@ if ($conn->connect_error) {
     exit;
 }
 
-// function for sedning an email upon sending message
+// function for sedning an email upon sending message as the client requested
 function sendContactEmail($contact) {
     $mail = new PHPMailer(true);
 
@@ -47,7 +47,7 @@ function sendContactEmail($contact) {
         $mail->Username = "albaytdecorinfo@gmail.com";
 
         // we use gmail app password, not normal gmail password
-        $mail->Password = "aoee jaae kbad bvdb";
+        $mail->Password = "vdeg hngq gavt qmzi"; 
 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;

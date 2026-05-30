@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     exit;
 }
 
-$conn = new mysqli("127.0.0.1", "root", "", "albaytdecor", 3306);
+$conn = new mysqli("localhost", "root", "", "albaytdecor", 3306);
 
 if ($conn->connect_error) {
     echo json_encode([
@@ -50,7 +50,7 @@ function sendAppointmentEmail($appointment) {
 
         //sent from these credentials
         $mail->Username = "albaytdecorinfo@gmail.com";
-        $mail->Password = "YOUR_GMAIL_APP_PASSWORD"; 
+        $mail->Password = "vdeg hngq gavt qmzi"; 
 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
